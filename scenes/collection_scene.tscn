@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddtmwmfk2epqy"]
+
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_wuvjj"]
+[ext_resource type="PackedScene" uid="uid://bt1xri2xfcllm" path="res://Prefabs/collection_grid.tscn" id="2_4vf3c"]
+[ext_resource type="Texture2D" uid="uid://l6y8m1ivb8tu" path="res://Textures/stage_1_button_background.png" id="3_hv1g0"]
+[ext_resource type="Texture2D" uid="uid://dwnm6bnpptnnw" path="res://Textures/right_arrow.png" id="4_5acdj"]
+[ext_resource type="Texture2D" uid="uid://qy0mx0pqps00" path="res://Textures/left_arrow.png" id="5_1171b"]
+
+[node name="collection_scene" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("1_wuvjj")
+
+[node name="CollectionGrid" parent="." instance=ExtResource("2_4vf3c")]
+offset_left = 368.0
+offset_top = 109.0
+offset_right = 2818.0
+offset_bottom = 1659.0
+
+[node name="RightButton" type="Button" parent="."]
+offset_left = 1700.0
+offset_top = 412.0
+offset_right = 1858.0
+offset_bottom = 570.0
+icon = ExtResource("3_hv1g0")
+flat = true
+
+[node name="RightArrow" type="TextureRect" parent="RightButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5acdj")
+
+[node name="LeftButton" type="Button" parent="."]
+offset_left = 67.0
+offset_top = 412.0
+offset_right = 225.0
+offset_bottom = 570.0
+icon = ExtResource("3_hv1g0")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="LeftButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1171b")
+
+[connection signal="pressed" from="RightButton" to="CollectionGrid" method="_on_right_button_pressed"]
+[connection signal="pressed" from="LeftButton" to="CollectionGrid" method="_on_left_button_pressed"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://b302md8wkqu2x"]
+
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b2p4otieq5jpw" path="res://Textures/stage_1_menu_button.png" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://bvaupxw4grppj" path="res://fonts/SunnyRegular-K7jmW.ttf" id="3_bqqt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
+
+[node name="main_menu" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("1_l6cm7")
+
+[node name="WorkButton" type="Button" parent="Background"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1264.0
+offset_top = -741.0
+offset_right = -656.0
+offset_bottom = -533.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+icon = ExtResource("2_ekxnf")
+flat = true
+
+[node name="WorkText" type="RichTextLabel" parent="Background/WorkButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -68.0
+offset_right = 234.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_bqqt6")
+theme_override_font_sizes/normal_font_size = 150
+text = "Work
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="Background"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1264.0
+offset_top = -521.0
+offset_right = -656.0
+offset_bottom = -313.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wu84c")
+icon = ExtResource("2_ekxnf")
+flat = true
+
+[node name="BuyButton" type="RichTextLabel" parent="Background/BuyButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -68.0
+offset_right = 234.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_bqqt6")
+theme_override_font_sizes/normal_font_size = 150
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1

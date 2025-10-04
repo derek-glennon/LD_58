@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://di5pcti1kalii"]
+
+[ext_resource type="Script" uid="uid://b4kxb8jpjehd6" path="res://Scripts/card.gd" id="1_xaftv"]
+[ext_resource type="Texture2D" uid="uid://by1mxs7e160y1" path="res://Textures/card_frame.png" id="2_u6lgx"]
+[ext_resource type="Texture2D" uid="uid://btiepj0825f36" path="res://Textures/card_art.png" id="2_ue66k"]
+[ext_resource type="FontFile" uid="uid://bvaupxw4grppj" path="res://fonts/SunnyRegular-K7jmW.ttf" id="3_ue66k"]
+[ext_resource type="Texture2D" uid="uid://5fx2wfu8obhs" path="res://Textures/mystery_card.png" id="5_ho6ls"]
+
+[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_text", "card_number_text", "mystery_card")]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ue66k")
+script = ExtResource("1_xaftv")
+card_text = NodePath("CardText")
+card_number_text = NodePath("CardNumber")
+mystery_card = NodePath("MysteryCard")
+
+[node name="CardFrame" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u6lgx")
+
+[node name="CardText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 490.0
+offset_right = 469.0
+offset_bottom = 688.0
+theme_override_fonts/normal_font = ExtResource("3_ue66k")
+theme_override_font_sizes/normal_font_size = 60
+text = "This is some sample card text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardNumber" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 652.0
+offset_right = 49.0
+offset_bottom = 700.0
+theme_override_fonts/normal_font = ExtResource("3_ue66k")
+theme_override_font_sizes/normal_font_size = 30
+text = "-1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MysteryCard" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 700.0
+texture = ExtResource("5_ho6ls")

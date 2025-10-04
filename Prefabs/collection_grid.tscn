@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt1xri2xfcllm"]
+
+[ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_6f8bs"]
+[ext_resource type="Script" uid="uid://ba786jh3es1i4" path="res://Scripts/collection_grid.gd" id="1_7trqg"]
+
+[node name="GridContainer" type="GridContainer" node_paths=PackedStringArray("visible_cards")]
+offset_right = 2450.0
+offset_bottom = 1550.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 150
+columns = 4
+script = ExtResource("1_7trqg")
+visible_cards = [NodePath("Card"), NodePath("Card2"), NodePath("Card3"), NodePath("Card4"), NodePath("Card5"), NodePath("Card6"), NodePath("Card7"), NodePath("Card8")]
+
+[node name="Card" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card2" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card3" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card4" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card5" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card6" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card7" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2
+
+[node name="Card8" parent="." instance=ExtResource("1_6f8bs")]
+layout_mode = 2

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://busnyra1747av"]
+
+[ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_xcbl0"]
+
+[node name="Card_3" instance=ExtResource("1_xcbl0")]
+card_number = 3
+cost = 1

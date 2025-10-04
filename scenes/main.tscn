@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://crw05pw5v77l0"]
+[gd_scene load_steps=5 format=3 uid="uid://crw05pw5v77l0"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://ddrfrk1qtsvxu" path="res://Prefabs/collection_button.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://b302md8wkqu2x" path="res://scenes/main_menu.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c7fei5wby7p2u" path="res://Prefabs/money_ui.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ddtmwmfk2epqy" path="res://scenes/collection_scene.tscn" id="2_jyhfs"]
+
+[node name="main" type="Node2D"]
+
+[node name="main_menu" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="collection_scene" parent="." instance=ExtResource("2_jyhfs")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CollectionButton" parent="CanvasLayer" node_paths=PackedStringArray("collection_scene") instance=ExtResource("1_o5qli")]
+offset_left = 1745.0
+offset_top = 914.0
+offset_right = 1745.0
+offset_bottom = 914.0
+collection_scene = NodePath("../../collection_scene")
+
+[node name="MoneyUI" parent="CanvasLayer" instance=ExtResource("2_0wfyh")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -271.0
+offset_right = 33.0
+offset_bottom = 150.0
+grow_horizontal = 0
