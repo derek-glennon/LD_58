@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddtmwmfk2epqy"]
+[gd_scene load_steps=8 format=3 uid="uid://ddtmwmfk2epqy"]
 
 [ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_wuvjj"]
 [ext_resource type="PackedScene" uid="uid://bt1xri2xfcllm" path="res://Prefabs/collection_grid.tscn" id="2_4vf3c"]
 [ext_resource type="Texture2D" uid="uid://l6y8m1ivb8tu" path="res://Textures/stage_1_button_background.png" id="3_hv1g0"]
 [ext_resource type="Texture2D" uid="uid://dwnm6bnpptnnw" path="res://Textures/right_arrow.png" id="4_5acdj"]
 [ext_resource type="Texture2D" uid="uid://qy0mx0pqps00" path="res://Textures/left_arrow.png" id="5_1171b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1171b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pi0vs"]
 
 [node name="collection_scene" type="Node2D"]
 
@@ -24,6 +28,7 @@ offset_left = 1700.0
 offset_top = 412.0
 offset_right = 1858.0
 offset_bottom = 570.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1171b")
 icon = ExtResource("3_hv1g0")
 flat = true
 
@@ -47,6 +52,7 @@ offset_left = 67.0
 offset_top = 412.0
 offset_right = 225.0
 offset_bottom = 570.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pi0vs")
 icon = ExtResource("3_hv1g0")
 flat = true
 

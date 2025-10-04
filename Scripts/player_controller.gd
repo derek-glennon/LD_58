@@ -5,10 +5,14 @@ var card_path := "res://Prefabs/Cards/"
 var all_cards: Array[Card] = []
 var locked_cards: Array[Card] = []
 var unlocked_cards: Array[Card] = []
-
 var collection_grid
+var day := 1
+var stage := 1
+var current_scene := Enums.CurrentScene.MAIN
 
 signal card_unlocked
+signal money_amount_changed
+signal stage_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,8 +39,22 @@ func _process(delta: float) -> void:
 		var card_to_unlock = locked_cards.pick_random()
 		if card_to_unlock:
 			unlock_card(card_to_unlock)
-	pass
+	if Input.is_action_just_pressed("debug 2"):
+		money += 1
+		change_money(money)
+	if Input.is_action_just_pressed("debug stage 1"):
+		change_stage(1)
+	if Input.is_action_just_pressed("debug stage 2"):
+		change_stage(2)
+	if Input.is_action_just_pressed("debug stage 3"):
+		change_stage(3)
 	
+func find_card_by_number(card_number: int) -> Card:
+	for card in all_cards:
+		if card_number == card.card_number:
+			return card
+	return null
+
 func unlock_card(card: Card):
 	card.on_unlock()
 	var index = locked_cards.find(card)
@@ -45,3 +63,14 @@ func unlock_card(card: Card):
 	locked_cards.remove_at(index)
 	locked_cards.sort_custom(HelperFunctions.sort_cards_by_number)
 	card_unlocked.emit(card)
+	
+func change_money(new_value : int) -> void:
+	money = new_value
+	money_amount_changed.emit(new_value)
+	
+func change_current_scene (new_value : Enums.CurrentScene) -> void:
+	current_scene = new_value
+	
+func change_stage(new_value: int) -> void:
+	stage = new_value
+	stage_changed.emit(new_value)

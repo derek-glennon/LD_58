@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://dlqqlgs0ley0m"]
+
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_1mhrl"]
+[ext_resource type="Script" uid="uid://duqshoc2swwv3" path="res://Scripts/buy_scene.gd" id="1_4rf3d"]
+[ext_resource type="Texture2D" uid="uid://b2p4otieq5jpw" path="res://Textures/stage_1_menu_button.png" id="2_jgp8b"]
+[ext_resource type="PackedScene" uid="uid://una3gqttaoe4" path="res://Prefabs/card_pack.tscn" id="2_rpyqk"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_jgp8b"]
+[ext_resource type="Texture2D" uid="uid://l6y8m1ivb8tu" path="res://Textures/stage_1_button_background.png" id="5_1p6i2"]
+[ext_resource type="Texture2D" uid="uid://qy0mx0pqps00" path="res://Textures/left_arrow.png" id="6_8f3o6"]
+[ext_resource type="PackedScene" uid="uid://xs5v87boyt5q" path="res://scenes/buy_singles_scene.tscn" id="7_8f3o6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpyqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8f3o6"]
+
+[node name="buy_scene" type="Node2D" node_paths=PackedStringArray("pack_spawn_point", "back_button", "pack_button", "rare_pack_button", "buy_singles_scene")]
+script = ExtResource("1_4rf3d")
+pack_spawn_point = NodePath("PackSpawnPoint")
+back_button = NodePath("BackButton")
+pack_button = NodePath("BuyPackButton")
+rare_pack_button = NodePath("BuyRarePackButton")
+buy_singles_scene = NodePath("buy_singles_scene")
+pack_scene = ExtResource("2_rpyqk")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("1_1mhrl")
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 24.0
+offset_right = 182.0
+offset_bottom = 158.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rpyqk")
+icon = ExtResource("5_1p6i2")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_8f3o6")
+
+[node name="BuyPackButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 656.0
+offset_top = 339.0
+offset_right = 1264.0
+offset_bottom = 547.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8f3o6")
+icon = ExtResource("2_jgp8b")
+flat = true
+
+[node name="PackButtonText" type="RichTextLabel" parent="BuyPackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -74.0
+offset_right = 234.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_jgp8b")
+theme_override_font_sizes/normal_font_size = 100
+text = "Pack - 5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyRarePackButton" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 656.0
+offset_top = 547.0
+offset_right = 1264.0
+offset_bottom = 755.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8f3o6")
+icon = ExtResource("2_jgp8b")
+flat = true
+
+[node name="RarePackButtonText" type="RichTextLabel" parent="BuyRarePackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -35.0
+offset_right = 234.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_jgp8b")
+theme_override_font_sizes/normal_font_size = 60
+text = "Rare Pack - 20
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy_singles_scene" parent="." instance=ExtResource("7_8f3o6")]
+visible = false
+
+[node name="PackSpawnPoint" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BuyPackButton" to="." method="_on_buy_pack_button_pressed"]

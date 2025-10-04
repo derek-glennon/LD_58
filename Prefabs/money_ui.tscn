@@ -1,20 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7fei5wby7p2u"]
+[gd_scene load_steps=4 format=3 uid="uid://c7fei5wby7p2u"]
 
+[ext_resource type="Script" uid="uid://qraxc7cymv41" path="res://Scripts/money_ui.gd" id="1_gr7hf"]
 [ext_resource type="Texture2D" uid="uid://dej0u8dovgdtl" path="res://Textures/stage_1_money_icon.png" id="1_s7awr"]
-[ext_resource type="FontFile" uid="uid://bvaupxw4grppj" path="res://fonts/SunnyRegular-K7jmW.ttf" id="2_gr7hf"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="3_gr7hf"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="money_ui" type="HBoxContainer" node_paths=PackedStringArray("money_text")]
+offset_right = 204.0
+offset_bottom = 150.0
+script = ExtResource("1_gr7hf")
+money_text = NodePath("MoneyText")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MoneyImage" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_s7awr")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(50, 0)
+[node name="MoneyText" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_gr7hf")
+theme_override_fonts/normal_font = ExtResource("3_gr7hf")
 theme_override_font_sizes/normal_font_size = 80
 text = "0"
 fit_content = true

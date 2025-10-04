@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://una3gqttaoe4"]
+
+[ext_resource type="Texture2D" uid="uid://c7j2fxhn1l7j4" path="res://Textures/card_pack.png" id="1_6ogk4"]
+[ext_resource type="Script" uid="uid://cbk6hqctgdx04" path="res://Scripts/card_pack.gd" id="2_l4trg"]
+[ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="3_kusq5"]
+
+[node name="card_pack" type="Button" node_paths=PackedStringArray("cards")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.5
+offset_top = -441.5
+offset_right = 316.5
+offset_bottom = 441.5
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_6ogk4")
+flat = true
+script = ExtResource("2_l4trg")
+cards = [NodePath("Card1"), NodePath("Card2"), NodePath("Card3")]
+
+[node name="Card3" parent="." instance=ExtResource("3_kusq5")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -350.0
+offset_right = 250.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card2" parent="." instance=ExtResource("3_kusq5")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -350.0
+offset_right = 250.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card1" parent="." instance=ExtResource("3_kusq5")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -350.0
+offset_right = 250.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

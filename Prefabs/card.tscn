@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://di5pcti1kalii"]
+[gd_scene load_steps=8 format=3 uid="uid://di5pcti1kalii"]
 
 [ext_resource type="Script" uid="uid://b4kxb8jpjehd6" path="res://Scripts/card.gd" id="1_xaftv"]
 [ext_resource type="Texture2D" uid="uid://by1mxs7e160y1" path="res://Textures/card_frame.png" id="2_u6lgx"]
 [ext_resource type="Texture2D" uid="uid://btiepj0825f36" path="res://Textures/card_art.png" id="2_ue66k"]
-[ext_resource type="FontFile" uid="uid://bvaupxw4grppj" path="res://fonts/SunnyRegular-K7jmW.ttf" id="3_ue66k"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_ho6ls"]
 [ext_resource type="Texture2D" uid="uid://5fx2wfu8obhs" path="res://Textures/mystery_card.png" id="5_ho6ls"]
+[ext_resource type="Texture2D" uid="uid://fdyr3kpxsaj" path="res://Textures/buy_single_button.png" id="6_x5x4h"]
 
-[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_text", "card_number_text", "mystery_card")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5x4h"]
+
+[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_text", "card_number_text", "mystery_card", "buy_single_button", "cost_text")]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_ue66k")
@@ -14,6 +17,8 @@ script = ExtResource("1_xaftv")
 card_text = NodePath("CardText")
 card_number_text = NodePath("CardNumber")
 mystery_card = NodePath("MysteryCard")
+buy_single_button = NodePath("BuySingleButton")
+cost_text = NodePath("BuySingleButton/CostText")
 
 [node name="CardFrame" type="TextureRect" parent="."]
 layout_mode = 0
@@ -27,8 +32,8 @@ offset_left = 32.0
 offset_top = 490.0
 offset_right = 469.0
 offset_bottom = 688.0
-theme_override_fonts/normal_font = ExtResource("3_ue66k")
-theme_override_font_sizes/normal_font_size = 60
+theme_override_fonts/normal_font = ExtResource("4_ho6ls")
+theme_override_font_sizes/normal_font_size = 40
 text = "This is some sample card text"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,14 +44,56 @@ offset_left = 3.0
 offset_top = 652.0
 offset_right = 49.0
 offset_bottom = 700.0
-theme_override_fonts/normal_font = ExtResource("3_ue66k")
+theme_override_fonts/normal_font = ExtResource("4_ho6ls")
 theme_override_font_sizes/normal_font_size = 30
 text = "-1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MysteryCard" type="TextureRect" parent="."]
+[node name="MysteryCard" type="Button" parent="."]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 700.0
-texture = ExtResource("5_ho6ls")
+mouse_filter = 2
+icon = ExtResource("5_ho6ls")
+
+[node name="BuySingleButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -79.0
+offset_right = 204.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5x4h")
+icon = ExtResource("6_x5x4h")
+flat = true
+
+[node name="CostText" type="RichTextLabel" parent="BuySingleButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -51.0
+offset_right = 167.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_ho6ls")
+theme_override_font_sizes/normal_font_size = 50
+text = "-1 - Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MysteryCard" to="." method="_on_mystery_card_pressed"]
+[connection signal="pressed" from="BuySingleButton" to="." method="_on_buy_single_button_pressed"]

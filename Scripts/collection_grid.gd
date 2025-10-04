@@ -16,6 +16,7 @@ func init() -> void:
 		visible_cards[i].clone_card(PlayerController.all_cards[current_page + i])
 	
 func _on_card_unlocked(card: Card) -> void:
+	card.buy_single_button.visible = false
 	var index_min = current_page * 8
 	var index_max = index_min + 7
 	if (card.card_number - 1) >= index_min and (card.card_number - 1) <= index_max:
