@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0mckxaapdnly"]
+[gd_scene load_steps=3 format=3 uid="uid://d0mckxaapdnly"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_lll7n"]
+[ext_resource type="Texture2D" uid="uid://bljnnbrs5o4s0" path="res://Textures/Cards/Card_08.png" id="2_i7ewe"]
 
 [node name="Card_8" instance=ExtResource("1_lll7n")]
+texture = ExtResource("2_i7ewe")
+card_title = "Teeth"
+card_description = "Teeth."
 card_number = 8
 cost = 1

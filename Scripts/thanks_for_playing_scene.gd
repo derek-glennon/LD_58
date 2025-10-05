@@ -2,7 +2,7 @@ class_name ThanksForPlayingScene
 
 extends Node2D
 
-@export var screen_time = 10
+@export var screen_time = 0.1
 
 func _ready() -> void:
 	PlayerController.all_cards_unlocked.connect(_on_all_cards_unlocked)

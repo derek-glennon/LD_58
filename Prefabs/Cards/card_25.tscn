@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlalqxtfy8f1r"]
+[gd_scene load_steps=3 format=3 uid="uid://dlalqxtfy8f1r"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_0w1fm"]
+[ext_resource type="Texture2D" uid="uid://5nnlhcc1afci" path="res://Textures/Cards/Card_25.png" id="2_b3t0a"]
 
 [node name="Card_25" instance=ExtResource("1_0w1fm")]
+texture = ExtResource("2_b3t0a")
+card_title = "bokey bokey"
+card_description = "lil guys"
 card_number = 25
 cost = 15
 rarity = 2

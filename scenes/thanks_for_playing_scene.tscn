@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc0nmfmoaekox"]
+[gd_scene load_steps=4 format=3 uid="uid://bc0nmfmoaekox"]
 
+[ext_resource type="Script" uid="uid://dkt1h3ywcv0y7" path="res://Scripts/thanks_for_playing_scene.gd" id="1_n46lj"]
 [ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_q4rjy"]
 [ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="2_n46lj"]
 
 [node name="thanks_for_playing_scene" type="Node2D"]
+script = ExtResource("1_n46lj")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = 10

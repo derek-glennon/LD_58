@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctrp2gapw1uwn"]
+[gd_scene load_steps=3 format=3 uid="uid://ctrp2gapw1uwn"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_0h4a4"]
+[ext_resource type="Texture2D" uid="uid://dm3foivgecsmc" path="res://Textures/Cards/Card_12.png" id="2_vkw0o"]
 
 [node name="Card_12" instance=ExtResource("1_0h4a4")]
+texture = ExtResource("2_vkw0o")
+card_title = "Sphinx Guardian"
+card_description = "Guards! Guards!"
 card_number = 12
 cost = 1

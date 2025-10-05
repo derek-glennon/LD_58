@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://busnyra1747av"]
+[gd_scene load_steps=3 format=3 uid="uid://busnyra1747av"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_xcbl0"]
+[ext_resource type="Texture2D" uid="uid://wa8cdyrdbkre" path="res://Textures/Cards/Card_03.png" id="2_yih4l"]
 
 [node name="Card_3" instance=ExtResource("1_xcbl0")]
+texture = ExtResource("2_yih4l")
+card_title = "Frog Hat"
+card_description = "Which came first?"
 card_number = 3
 cost = 1

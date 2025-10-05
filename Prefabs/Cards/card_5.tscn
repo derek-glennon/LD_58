@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://i2osq8s4jssa"]
+[gd_scene load_steps=3 format=3 uid="uid://i2osq8s4jssa"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_laken"]
+[ext_resource type="Texture2D" uid="uid://chns8jfsq7v8j" path="res://Textures/Cards/Card_05.png" id="2_yeb2c"]
 
 [node name="Card_5" instance=ExtResource("1_laken")]
+texture = ExtResource("2_yeb2c")
+card_title = "Vase of Avarice"
+card_description = "This card lets me"
 card_number = 5
 cost = 1

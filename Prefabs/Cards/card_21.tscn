@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgog58yqjdagi"]
+[gd_scene load_steps=3 format=3 uid="uid://cgog58yqjdagi"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_sffnk"]
+[ext_resource type="Texture2D" uid="uid://bm1kg12r82kja" path="res://Textures/Cards/Card_21.png" id="2_s1k70"]
 
 [node name="Card_21" instance=ExtResource("1_sffnk")]
+texture = ExtResource("2_s1k70")
+card_title = "Little Freak"
+card_description = "He's gonna get ya"
 card_number = 21
 cost = 3
 rarity = 1

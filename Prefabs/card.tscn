@@ -11,13 +11,18 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5x4h"]
 
-[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_text", "card_number_text", "mystery_card", "buy_single_button", "cost_text")]
+[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_title_text", "card_description_text", "card_number_text", "card_rarity_text", "mystery_card", "buy_single_button", "cost_text")]
 offset_right = 500.0
 offset_bottom = 700.0
 texture = ExtResource("2_ue66k")
 script = ExtResource("1_xaftv")
-card_text = NodePath("CardText")
+card_title_text = NodePath("CardTitle")
+card_description_text = NodePath("CardText")
 card_number_text = NodePath("CardNumber")
+card_rarity_text = NodePath("CardRarity")
+uncommon_color = Color(1, 1, 1, 1)
+rare_color = Color(1, 1, 1, 1)
+ultrarare_color = Color(1, 1, 1, 1)
 mystery_card = NodePath("MysteryCard")
 buy_single_button = NodePath("BuySingleButton")
 cost_text = NodePath("BuySingleButton/CostText")
@@ -30,25 +35,49 @@ texture = ExtResource("2_u6lgx")
 
 [node name="CardText" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 490.0
-offset_right = 469.0
-offset_bottom = 688.0
+offset_left = 52.0
+offset_top = 526.0
+offset_right = 442.0
+offset_bottom = 644.0
 theme_override_fonts/normal_font = ExtResource("4_ho6ls")
 theme_override_font_sizes/normal_font_size = 40
 text = "This is some sample card text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CardTitle" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 36.0
+offset_right = 453.0
+offset_bottom = 93.0
+theme_override_fonts/normal_font = ExtResource("4_ho6ls")
+theme_override_font_sizes/normal_font_size = 40
+text = "Sample Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CardNumber" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 652.0
-offset_right = 49.0
-offset_bottom = 700.0
+offset_left = 15.0
+offset_top = 644.0
+offset_right = 61.0
+offset_bottom = 692.0
 theme_override_fonts/normal_font = ExtResource("4_ho6ls")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 20
 text = "-1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardRarity" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 642.0
+offset_right = 480.0
+offset_bottom = 690.0
+theme_override_fonts/normal_font = ExtResource("4_ho6ls")
+theme_override_font_sizes/normal_font_size = 20
+text = "C"
 horizontal_alignment = 1
 vertical_alignment = 1
 

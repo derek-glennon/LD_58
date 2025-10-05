@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0ym7kqwxsdcy"]
+[gd_scene load_steps=3 format=3 uid="uid://d0ym7kqwxsdcy"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_itllp"]
+[ext_resource type="Texture2D" uid="uid://c6usottdj1sa4" path="res://Textures/Cards/Card_07.png" id="2_7a24i"]
 
 [node name="Card_7" instance=ExtResource("1_itllp")]
+texture = ExtResource("2_7a24i")
+card_title = "Spooky Sword"
+card_description = "oOoO so scaryyy"
 card_number = 7
 cost = 1

@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://co1h64q5tqytq"]
+[gd_scene load_steps=3 format=3 uid="uid://co1h64q5tqytq"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_i2op2"]
+[ext_resource type="Texture2D" uid="uid://j8wk0beuuqpa" path="res://Textures/Cards/Card_17.png" id="2_2hhoh"]
 
 [node name="Card_17" instance=ExtResource("1_i2op2")]
+texture = ExtResource("2_2hhoh")
+card_title = "Shadow Duck"
+card_description = "Give him a gun"
 card_number = 17
 cost = 2
 rarity = 1

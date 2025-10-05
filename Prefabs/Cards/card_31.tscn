@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb0n1ygxwpwh3"]
+[gd_scene load_steps=3 format=3 uid="uid://bb0n1ygxwpwh3"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_wa371"]
+[ext_resource type="Texture2D" uid="uid://c302tfmyaddj2" path="res://Textures/Cards/Card_31.png" id="2_x62ay"]
 
 [node name="Card_31" instance=ExtResource("1_wa371")]
+texture = ExtResource("2_x62ay")
+card_title = "Le'x, The Destroyer"
+card_description = "\"hello!\""
 card_number = 31
 cost = 750
 rarity = 3

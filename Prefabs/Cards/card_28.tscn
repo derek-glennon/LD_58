@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3hrad8bu381u"]
+[gd_scene load_steps=3 format=3 uid="uid://d3hrad8bu381u"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_pbcs8"]
+[ext_resource type="Texture2D" uid="uid://c4gjqwn0uc4mj" path="res://Textures/Cards/Card_28.png" id="2_a15nx"]
 
 [node name="Card_28" instance=ExtResource("1_pbcs8")]
+texture = ExtResource("2_a15nx")
+card_title = "BIIIG BOKEY"
+card_description = "TOO BIG"
 card_number = 28
 cost = 81
 rarity = 2

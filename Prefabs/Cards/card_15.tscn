@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkosl5ssqu8wb"]
+[gd_scene load_steps=3 format=3 uid="uid://dkosl5ssqu8wb"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_uxbbr"]
+[ext_resource type="Texture2D" uid="uid://g6wch5ik0stl" path="res://Textures/Cards/Card_15.png" id="2_2x75x"]
 
 [node name="Card_15" instance=ExtResource("1_uxbbr")]
+texture = ExtResource("2_2x75x")
+card_title = "Magnet Head"
+card_description = "How he work?"
 card_number = 15
 cost = 1

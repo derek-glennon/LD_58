@@ -2,15 +2,21 @@ class_name Card
 
 extends TextureRect
 
+@export var card_title := "Sample Name"
+@export var card_description := "This is some sample card text"
 @export var card_number := -1
 @export var cost := 0
 @export var rarity := Enums.Rarity.COMMON
-@export var card_text : RichTextLabel
+@export var card_title_text : RichTextLabel
+@export var card_description_text : RichTextLabel
 @export var card_number_text : RichTextLabel
+@export var card_rarity_text : RichTextLabel
+@export var uncommon_color : Color
+@export var rare_color : Color
+@export var ultrarare_color : Color
 @export var mystery_card : Button
 @export var buy_single_button : Button
 @export var cost_text : RichTextLabel
-
 @export var collection_from_pack_duration := 1.0
 @export var sell_from_pack_duration := 1.0
 
@@ -22,8 +28,23 @@ signal card_pack_animation_done
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	card_title_text.text = card_title
+	card_description_text.text = card_description
 	card_number_text.text = str(card_number)
 	cost_text.text = str(cost) + " - Buy"
+	match rarity:
+		Enums.Rarity.COMMON:
+			card_rarity_text.text = "C"
+			card_rarity_text.add_theme_color_override("default_color", Color.WHITE)
+		Enums.Rarity.UNCOMMON:
+			card_rarity_text.text = "U"
+			card_rarity_text.add_theme_color_override("default_color", uncommon_color)
+		Enums.Rarity.RARE:
+			card_rarity_text.text = "R"
+			card_rarity_text.add_theme_color_override("default_color", rare_color)
+		Enums.Rarity.ULTRARARE:
+			card_rarity_text.text = "UR"
+			card_rarity_text.add_theme_color_override("default_color", ultrarare_color)
 	
 	# Setup connections
 	money_ui = PlayerController.money_ui
@@ -34,9 +55,26 @@ func on_unlock() -> void:
 	
 func clone_card(card: Card) -> void:
 	self.texture = card.texture
-	card_text.text = card.card_text.text
+	card_title = card.card_title
+	card_title_text.text = card.card_title
+	card_description = card.card_description
+	card_description_text.text = card.card_description
 	card_number = card.card_number
 	card_number_text.text = str(card.card_number)
+	rarity = card.rarity
+	match rarity:
+		Enums.Rarity.COMMON:
+			card_rarity_text.text = "C"
+			card_rarity_text.add_theme_color_override("default_color", Color.WHITE)
+		Enums.Rarity.UNCOMMON:
+			card_rarity_text.text = "U"
+			card_rarity_text.add_theme_color_override("default_color", uncommon_color)
+		Enums.Rarity.RARE:
+			card_rarity_text.text = "R"
+			card_rarity_text.add_theme_color_override("default_color", rare_color)
+		Enums.Rarity.ULTRARARE:
+			card_rarity_text.text = "UR"
+			card_rarity_text.add_theme_color_override("default_color", ultrarare_color)
 	is_unlocked = card.is_unlocked
 	if !PlayerController.is_opening_pack:
 		mystery_card.visible = !is_unlocked

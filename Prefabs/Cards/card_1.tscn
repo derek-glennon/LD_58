@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwt8e0mbofhwg"]
+[gd_scene load_steps=3 format=3 uid="uid://bwt8e0mbofhwg"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_o2qj0"]
+[ext_resource type="Texture2D" uid="uid://cfjin1lj61scg" path="res://Textures/Cards/card_01.png" id="2_3ea3a"]
 
 [node name="Card_1" instance=ExtResource("1_o2qj0")]
+texture = ExtResource("2_3ea3a")
+card_title = "Apple"
+card_description = "This is an apple"
 card_number = 1
 cost = 1

@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd2q6grgyf27d"]
+[gd_scene load_steps=3 format=3 uid="uid://cd2q6grgyf27d"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_ojqvl"]
+[ext_resource type="Texture2D" uid="uid://cw8afxittfspw" path="res://Textures/Cards/Card_32.png" id="2_jqvj1"]
 
 [node name="Card_32" instance=ExtResource("1_ojqvl")]
+texture = ExtResource("2_jqvj1")
+card_title = "Thanks"
+card_description = "Thanks!"
 card_number = 32
 cost = 999
 rarity = 3

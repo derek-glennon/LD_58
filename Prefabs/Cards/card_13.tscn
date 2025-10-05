@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0km1ch3lk3rq"]
+[gd_scene load_steps=3 format=3 uid="uid://b0km1ch3lk3rq"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_63iho"]
+[ext_resource type="Texture2D" uid="uid://sue804mto552" path="res://Textures/Cards/Card_13.png" id="2_hg5il"]
 
 [node name="Card_13" instance=ExtResource("1_63iho")]
+texture = ExtResource("2_hg5il")
+card_title = "Beef Ghost"
+card_description = "I smell like beeeeeef"
 card_number = 13
 cost = 1

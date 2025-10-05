@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://diage8fsydy8p"]
+[gd_scene load_steps=3 format=3 uid="uid://diage8fsydy8p"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_5ppp3"]
+[ext_resource type="Texture2D" uid="uid://b205wwgth4c5g" path="res://Textures/Cards/Card_09.png" id="2_xn5pe"]
 
 [node name="Card_9" instance=ExtResource("1_5ppp3")]
+texture = ExtResource("2_xn5pe")
+card_title = "Pyramid #2"
+card_description = "Best shape"
 card_number = 9
 cost = 1

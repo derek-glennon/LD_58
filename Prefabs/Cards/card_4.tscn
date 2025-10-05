@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://uqo5cpnlpgl0"]
+[gd_scene load_steps=3 format=3 uid="uid://uqo5cpnlpgl0"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_prrvp"]
+[ext_resource type="Texture2D" uid="uid://c6wolk7pftl4s" path="res://Textures/Cards/Card_04.png" id="2_5we65"]
 
 [node name="Card_4" instance=ExtResource("1_prrvp")]
+texture = ExtResource("2_5we65")
+card_title = "Puffy"
+card_description = "Poof"
 card_number = 4
 cost = 1

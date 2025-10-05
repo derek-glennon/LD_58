@@ -62,6 +62,9 @@ func _process(delta: float) -> void:
 		change_stage(2)
 	if Input.is_action_just_pressed("debug stage 3"):
 		change_stage(3)
+	if Input.is_action_just_pressed("unlock all cards"):
+		for card in all_cards:
+			unlock_card(card)
 	
 func find_card_by_number(card_number: int) -> Card:
 	for card in all_cards:

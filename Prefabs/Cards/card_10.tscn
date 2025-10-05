@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqh8auhm5b0ns"]
+[gd_scene load_steps=3 format=3 uid="uid://cqh8auhm5b0ns"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_ys4qi"]
+[ext_resource type="Texture2D" uid="uid://bu1itgx1x1jc" path="res://Textures/Cards/Card_10.png" id="2_jf6hg"]
 
 [node name="Card_10" instance=ExtResource("1_ys4qi")]
+texture = ExtResource("2_jf6hg")
+card_title = "Blue Shoe"
+card_description = "This is a shoe that is blue"
 card_number = 10
 cost = 1

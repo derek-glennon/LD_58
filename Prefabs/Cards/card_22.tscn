@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj6xwnjwbnvv4"]
+[gd_scene load_steps=3 format=3 uid="uid://bj6xwnjwbnvv4"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_ipnko"]
+[ext_resource type="Texture2D" uid="uid://oe7ehh4ay6ei" path="res://Textures/Cards/Card_22.png" id="2_tyj2h"]
 
 [node name="Card_22" instance=ExtResource("1_ipnko")]
+texture = ExtResource("2_tyj2h")
+card_title = "U.F.O Bot"
+card_description = "Card games on motorbikes"
 card_number = 22
 cost = 5
 rarity = 1

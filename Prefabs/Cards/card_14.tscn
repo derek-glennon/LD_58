@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bna4kg2lg0xqm"]
+[gd_scene load_steps=3 format=3 uid="uid://bna4kg2lg0xqm"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_bxx5x"]
+[ext_resource type="Texture2D" uid="uid://4phv6hwo858u" path="res://Textures/Cards/Card_14.png" id="2_2yn8j"]
 
 [node name="Card_14" instance=ExtResource("1_bxx5x")]
+texture = ExtResource("2_2yn8j")
+card_title = "Jelly Lad"
+card_description = "I'm enjoying a treat"
 card_number = 14
 cost = 1

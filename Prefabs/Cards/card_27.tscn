@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://perq0y1414p4"]
+[gd_scene load_steps=3 format=3 uid="uid://perq0y1414p4"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_i766p"]
+[ext_resource type="Texture2D" uid="uid://bfsjtrdlwd8kf" path="res://Textures/Cards/Card_27.png" id="2_54srd"]
 
 [node name="Card_27" instance=ExtResource("1_i766p")]
+texture = ExtResource("2_54srd")
+card_title = "bokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokeybokey bokey bokey bokey bokey bokey bokey bokey bokey bokey"
+card_description = "AHHHHHHH"
 card_number = 27
 cost = 80
 rarity = 2

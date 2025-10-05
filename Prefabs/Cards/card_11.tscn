@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfnlmc8yh85hj"]
+[gd_scene load_steps=3 format=3 uid="uid://dfnlmc8yh85hj"]
 
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="1_f3eiu"]
+[ext_resource type="Texture2D" uid="uid://l0rrwbc067r1" path="res://Textures/Cards/Card_11.png" id="2_vf5dt"]
 
 [node name="Card_11" instance=ExtResource("1_f3eiu")]
+texture = ExtResource("2_vf5dt")
+card_title = "Moon Book"
+card_description = "Do a flip"
 card_number = 11
 cost = 1
