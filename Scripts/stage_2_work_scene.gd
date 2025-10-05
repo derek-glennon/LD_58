@@ -55,12 +55,16 @@ func _on_order_complete_delay_over() -> void:
 	for button in food_buttons:
 		button.is_active = true
 	is_bell_active = true
+	_clear_food_items()
+	_create_new_order()
+	
+func _clear_food_items() ->void:
 	var nodes = HelperFunctions.get_all_children(self)
 	for node in nodes:
 		var food_item = node as FoodItem
+		prints(food_item)
 		if food_item:
 			food_item.queue_free()
-	_create_new_order()
 
 func _create_new_order() -> void:
 	working_order = Order.new()
@@ -79,10 +83,6 @@ func _create_new_order() -> void:
 		3:
 			final_line = line_1 + "\n\n" + line_2 + "\n\n" + line_3 + "\n\n" + line_4 + "\n\n" + line_5
 	order_text.text = final_line
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func _on_work_time_over() -> void:
 	for button in food_buttons:
@@ -106,6 +106,7 @@ func _on_end_of_work_delay_over() -> void:
 		PlayerController.change_day(next_day)
 	main_menu_scene.visible = true
 	visible =  false
+	_clear_food_items()
 	
 func _on_emit_coin(coin : Node, start_position : Vector2, duration : float) -> void:
 	add_child(coin)

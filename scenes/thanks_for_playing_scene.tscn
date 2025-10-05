@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc0nmfmoaekox"]
+
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_q4rjy"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="2_n46lj"]
+
+[node name="thanks_for_playing_scene" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(960, 540)
+texture = ExtResource("1_q4rjy")
+
+[node name="InstructionsText" type="RichTextLabel" parent="."]
+z_index = 11
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 224.0
+offset_right = 1877.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_n46lj")
+theme_override_font_sizes/normal_font_size = 150
+text = "You collected them all!
+Thanks for Playing!"
+horizontal_alignment = 1
+vertical_alignment = 1

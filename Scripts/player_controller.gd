@@ -17,6 +17,7 @@ signal money_amount_changed
 signal current_scene_changed
 signal day_changed
 signal stage_changed
+signal all_cards_unlocked
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -76,6 +77,9 @@ func unlock_card(card: Card):
 	locked_cards.remove_at(index)
 	locked_cards.sort_custom(HelperFunctions.sort_cards_by_number)
 	card_unlocked.emit(card)
+	
+	if locked_cards.size() == 0:
+		all_cards_unlocked.emit()
 	
 func change_money(new_value : int) -> void:
 	money = new_value
