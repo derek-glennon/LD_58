@@ -1,0 +1,160 @@
+[gd_scene load_steps=16 format=3 uid="uid://d1d8gihbd7o5x"]
+
+[ext_resource type="Script" uid="uid://bejey3v5pjw7x" path="res://Scripts/stage_2_work_scene.gd" id="1_jmsle"]
+[ext_resource type="PackedScene" uid="uid://crke5ovad7kx5" path="res://Prefabs/coin_scene.tscn" id="2_d73j2"]
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="2_mqoe3"]
+[ext_resource type="Script" uid="uid://c3x7vntu8p5dr" path="res://Scripts/food_order_generator.gd" id="3_031wq"]
+[ext_resource type="PackedScene" uid="uid://d0i0r2ljwnps" path="res://Prefabs/circle_timer.tscn" id="3_cr5we"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_cr5we"]
+[ext_resource type="PackedScene" uid="uid://bcyxwfql7fcqs" path="res://Prefabs/food_item_hotbar.tscn" id="6_dl4so"]
+[ext_resource type="Texture2D" uid="uid://drrcqj7ttoys0" path="res://Textures/tray.png" id="7_dxb11"]
+[ext_resource type="Texture2D" uid="uid://dq2ahu13ladpn" path="res://Textures/order_page.png" id="8_mkayc"]
+[ext_resource type="Texture2D" uid="uid://cog6u684ph0ur" path="res://Textures/trash_can.png" id="9_qxwpr"]
+[ext_resource type="Texture2D" uid="uid://d80dq211d64l" path="res://Textures/bell.png" id="10_8kksq"]
+[ext_resource type="Script" uid="uid://jvlipvhq5lma" path="res://Scripts/trash_can.gd" id="11_sf2jr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxwpr"]
+size = Vector2(1197, 746)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kksq"]
+size = Vector2(184, 175)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf2jr"]
+
+[node name="stage_2_work_scene" type="Node2D" node_paths=PackedStringArray("food_order_generator", "food_buttons", "order_text", "instructions_text", "circle_timer")]
+script = ExtResource("1_jmsle")
+food_order_generator = NodePath("FoodOrderGenerator")
+food_buttons = [NodePath("FoodItemHotbar/HamburgerButton"), NodePath("FoodItemHotbar/FriesButton"), NodePath("FoodItemHotbar/DrinkButton"), NodePath("FoodItemHotbar/IceCreamButton"), NodePath("FoodItemHotbar/CookieButton")]
+order_text = NodePath("OrderPage/OrderText")
+coin_scene = ExtResource("2_d73j2")
+instructions_text = NodePath("InstructionsText")
+starting_phrases = Array[String](["Serve Food!", "Serve Food!", "Serve Food!"])
+circle_timer = NodePath("Circle_Timer")
+celebration_phrases = Array[String](["Good Cookin!", "Yummmm", "Looks Great!"])
+
+[node name="FoodOrderGenerator" type="Node2D" parent="."]
+script = ExtResource("3_031wq")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("2_mqoe3")
+
+[node name="Circle_Timer" parent="." instance=ExtResource("3_cr5we")]
+
+[node name="InstructionsText" type="RichTextLabel" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 224.0
+offset_right = 1877.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_cr5we")
+theme_override_font_sizes/normal_font_size = 150
+text = "Serve Food!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FoodItemHotbar" parent="." instance=ExtResource("6_dl4so")]
+offset_left = 559.0
+offset_top = 905.0
+offset_right = 1365.0
+offset_bottom = 1063.0
+
+[node name="HamburgerButton" parent="FoodItemHotbar" index="0" node_paths=PackedStringArray("work_scene")]
+work_scene = NodePath("../..")
+
+[node name="FriesButton" parent="FoodItemHotbar" index="1" node_paths=PackedStringArray("work_scene")]
+work_scene = NodePath("../..")
+
+[node name="DrinkButton" parent="FoodItemHotbar" index="2" node_paths=PackedStringArray("work_scene")]
+work_scene = NodePath("../..")
+
+[node name="IceCreamButton" parent="FoodItemHotbar" index="3" node_paths=PackedStringArray("work_scene")]
+work_scene = NodePath("../..")
+
+[node name="CookieButton" parent="FoodItemHotbar" index="4" node_paths=PackedStringArray("work_scene")]
+work_scene = NodePath("../..")
+
+[node name="Tray" type="Sprite2D" parent="."]
+position = Vector2(960, 429)
+texture = ExtResource("7_dxb11")
+
+[node name="TrayArea" type="Area2D" parent="Tray"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tray/TrayArea"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qxwpr")
+
+[node name="OrderPage" type="Sprite2D" parent="."]
+position = Vector2(184, 675)
+texture = ExtResource("8_mkayc")
+
+[node name="OrdersTitle" type="RichTextLabel" parent="OrderPage"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -283.0
+offset_top = -276.0
+offset_right = -9.0
+offset_bottom = -236.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_cr5we")
+theme_override_font_sizes/normal_font_size = 30
+text = "Orders"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OrderText" type="RichTextLabel" parent="OrderPage"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -284.0
+offset_top = -213.0
+offset_right = -11.0
+offset_bottom = 287.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_cr5we")
+theme_override_font_sizes/normal_font_size = 35
+text = "Hamburgers - 0
+
+Fries - 0
+
+Drinks - 0
+
+Ice Cream - 0
+
+Cookies - 0"
+
+[node name="TrashCan" type="Sprite2D" parent="."]
+position = Vector2(1767, 926)
+texture = ExtResource("9_qxwpr")
+script = ExtResource("11_sf2jr")
+
+[node name="TrashCanArea" type="Area2D" parent="TrashCan"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan/TrashCanArea"]
+position = Vector2(-5, 25.5)
+shape = SubResource("RectangleShape2D_8kksq")
+
+[node name="BellButton" type="Button" parent="."]
+offset_left = 1584.0
+offset_top = 239.0
+offset_right = 1892.0
+offset_bottom = 547.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf2jr")
+icon = ExtResource("10_8kksq")
+flat = true
+
+[connection signal="area_shape_entered" from="Tray/TrayArea" to="." method="_on_tray_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="Tray/TrayArea" to="." method="_on_tray_area_area_shape_exited"]
+[connection signal="pressed" from="BellButton" to="." method="_on_bell_button_pressed"]
+
+[editable path="FoodItemHotbar"]

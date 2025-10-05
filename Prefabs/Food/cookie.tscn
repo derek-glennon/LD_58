@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ut30r37m3be4"]
+
+[ext_resource type="PackedScene" uid="uid://dqd1hf400nsyw" path="res://Prefabs/food_item.tscn" id="1_ub8xr"]
+[ext_resource type="Texture2D" uid="uid://bsuqmxre7iqud" path="res://Textures/temp_food_item_5.png" id="2_q2nut"]
+
+[node name="Hamburger" instance=ExtResource("1_ub8xr")]
+icon = ExtResource("2_q2nut")
+food_type = 4

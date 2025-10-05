@@ -18,9 +18,9 @@ position = Vector2(960, 540)
 texture = ExtResource("1_aspj1")
 
 [node name="CollectionGrid" parent="." instance=ExtResource("2_803o0")]
-offset_left = 368.0
+offset_left = 353.0
 offset_top = 109.0
-offset_right = 2818.0
+offset_right = 2803.0
 offset_bottom = 1659.0
 
 [node name="BuySingleButton" parent="CollectionGrid/Card" index="4"]

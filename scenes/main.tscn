@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crw05pw5v77l0"]
+[gd_scene load_steps=9 format=3 uid="uid://crw05pw5v77l0"]
 
 [ext_resource type="PackedScene" uid="uid://ddrfrk1qtsvxu" path="res://Prefabs/collection_button.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://b302md8wkqu2x" path="res://scenes/main_menu.tscn" id="1_sugp2"]
@@ -7,15 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dlqqlgs0ley0m" path="res://scenes/buy_scene.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://wyi0mld4r5oe" path="res://scenes/stage_1_work_scene.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://0dkpefoda0sr" path="res://scenes/stage_3_work_scene.tscn" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://d1d8gihbd7o5x" path="res://scenes/stage_2_work_scene.tscn" id="5_tipki"]
 
 [node name="main" type="Node2D"]
 
 [node name="main_menu" parent="." instance=ExtResource("1_sugp2")]
 
-[node name="WorkButton" parent="main_menu/Background" index="0" node_paths=PackedStringArray("main_menu_scene", "work_scenes", "work_controller_1", "work_controller_3")]
+[node name="WorkButton" parent="main_menu/Background" index="0" node_paths=PackedStringArray("main_menu_scene", "work_scenes", "work_controller_1", "work_controller_2", "work_controller_3")]
 main_menu_scene = NodePath("../..")
-work_scenes = [NodePath("../../../stage_1_work_scene"), NodePath("../../../stage_3_work_scene"), NodePath("../../../stage_3_work_scene")]
+work_scenes = [NodePath("../../../stage_1_work_scene"), NodePath("../../../stage_2_work_scene"), NodePath("../../../stage_3_work_scene")]
 work_controller_1 = NodePath("../../../stage_1_work_scene")
+work_controller_2 = NodePath("../../../stage_2_work_scene")
 work_controller_3 = NodePath("../../../stage_3_work_scene")
 
 [node name="BuyButton" parent="main_menu/Background" index="1" node_paths=PackedStringArray("main_menu_scene", "buy_scene")]
@@ -31,6 +33,10 @@ collection_button = NodePath("../CanvasLayer/CollectionButton")
 visible = false
 
 [node name="stage_1_work_scene" parent="." node_paths=PackedStringArray("main_menu_scene") instance=ExtResource("4_tefeu")]
+visible = false
+main_menu_scene = NodePath("../main_menu")
+
+[node name="stage_2_work_scene" parent="." node_paths=PackedStringArray("main_menu_scene") instance=ExtResource("5_tipki")]
 visible = false
 main_menu_scene = NodePath("../main_menu")
 
@@ -60,4 +66,14 @@ grow_horizontal = 0
 
 [editable path="main_menu"]
 [editable path="buy_scene"]
+[editable path="buy_scene/buy_singles_scene"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card2"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card3"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card4"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card5"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card6"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card7"]
+[editable path="buy_scene/buy_singles_scene/CollectionGrid/Card8"]
 [editable path="collection_scene"]

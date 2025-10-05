@@ -4,8 +4,8 @@ extends Button
 @export var work_scenes: Array[Node] = []
 
 @export var work_controller_1 : StageOneWorkController
+@export var work_controller_2 : StageTwoWorkController
 @export var work_controller_3 : StageThreeWorkController
-var work_controller_2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +19,6 @@ func _on_pressed() -> void:
 		1:	
 			work_controller_1.init()
 		2:
-			work_controller_3.init()
+			work_controller_2.init()
 		3:
 			work_controller_3.init()

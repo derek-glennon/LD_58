@@ -39,7 +39,8 @@ func _on_starting_delay_over() -> void:
 		var timer = get_tree().create_timer(command_delay)
 		timer.timeout.connect(_on_command_delay_over)
 		circle_timer.start_timer(work_time_max)
-		circle_timer.timer_finished.connect(_on_work_time_over)
+		if !circle_timer.timer_finished.is_connected(_on_work_time_over):
+			circle_timer.timer_finished.connect(_on_work_time_over)
 	
 func _on_after_answer_delay_over() -> void:
 	if circle_timer.is_on:

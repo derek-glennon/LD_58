@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://svg3nunlfahs"]
+
+[ext_resource type="PackedScene" uid="uid://dqd1hf400nsyw" path="res://Prefabs/food_item.tscn" id="1_wi4yi"]
+
+[node name="Hamburger" instance=ExtResource("1_wi4yi")]

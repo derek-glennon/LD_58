@@ -10,6 +10,7 @@ extends Node2D
 @export var rare_pack_button : Button
 @export var buy_singles_button : Button
 @export var buy_singles_scene : Node
+@export var buy_singles_grid : CollectionGrid
 @export var pack_scene : PackedScene
 @export var rare_pack_scene : PackedScene
 
@@ -42,6 +43,7 @@ func _on_buy_singles_button_pressed() -> void:
 	rare_pack_button.visible = false
 	buy_singles_button.visible = false
 	buy_singles_scene.visible = true
+	buy_singles_grid.update_visible_cards()
 
 func _on_back_button_pressed() -> void:
 	if buy_singles_scene.visible:

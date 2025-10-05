@@ -27,7 +27,8 @@ func _on_instruction_delay_over() -> void:
 	mower.set_can_move(true)
 	instructions_text.text = ""
 	circle_timer.start_timer(work_time_max)
-	circle_timer.timer_finished.connect(_on_work_time_over)
+	if !circle_timer.timer_finished.is_connected(_on_work_time_over):
+		circle_timer.timer_finished.connect(_on_work_time_over)
 
 func _on_work_time_over() -> void:
 	mower.set_can_move(false)

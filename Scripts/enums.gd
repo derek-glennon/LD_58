@@ -2,3 +2,4 @@ extends Node
 
 enum Rarity {COMMON, UNCOMMON, RARE, ULTRARARE}
 enum CurrentScene {MAIN, WORK, BUY, COLLECTION}
+enum FoodTypes {HAMBURGER, FRIES, DRINK, ICECREAM, COOKIE}

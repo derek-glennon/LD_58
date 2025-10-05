@@ -14,7 +14,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8f3o6"]
 
-[node name="buy_scene" type="Node2D" node_paths=PackedStringArray("pack_spawn_point", "back_button", "pack_button", "rare_pack_button", "buy_singles_button", "buy_singles_scene")]
+[node name="buy_scene" type="Node2D" node_paths=PackedStringArray("pack_spawn_point", "back_button", "pack_button", "rare_pack_button", "buy_singles_button", "buy_singles_scene", "buy_singles_grid")]
 script = ExtResource("1_4rf3d")
 pack_cost = 10
 rare_pack_cost = 30
@@ -24,6 +24,7 @@ pack_button = NodePath("BuyPackButton")
 rare_pack_button = NodePath("BuyRarePackButton")
 buy_singles_button = NodePath("BuySinglesButton")
 buy_singles_scene = NodePath("buy_singles_scene")
+buy_singles_grid = NodePath("buy_singles_scene/CollectionGrid")
 pack_scene = ExtResource("2_rpyqk")
 rare_pack_scene = ExtResource("3_sbary")
 
@@ -87,8 +88,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_jgp8b")
 theme_override_font_sizes/normal_font_size = 100
-text = "Pack - 5
-"
+text = "Pack - 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -125,7 +125,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_jgp8b")
 theme_override_font_sizes/normal_font_size = 60
-text = "Rare Pack - 20
+text = "Rare Pack - 30
 
 "
 horizontal_alignment = 1
@@ -180,3 +180,14 @@ position = Vector2(960, 540)
 [connection signal="pressed" from="BuyPackButton" to="." method="_on_buy_pack_button_pressed"]
 [connection signal="pressed" from="BuyRarePackButton" to="." method="_on_buy_rare_pack_button_pressed"]
 [connection signal="pressed" from="BuySinglesButton" to="." method="_on_buy_singles_button_pressed"]
+
+[editable path="buy_singles_scene"]
+[editable path="buy_singles_scene/CollectionGrid"]
+[editable path="buy_singles_scene/CollectionGrid/Card"]
+[editable path="buy_singles_scene/CollectionGrid/Card2"]
+[editable path="buy_singles_scene/CollectionGrid/Card3"]
+[editable path="buy_singles_scene/CollectionGrid/Card4"]
+[editable path="buy_singles_scene/CollectionGrid/Card5"]
+[editable path="buy_singles_scene/CollectionGrid/Card6"]
+[editable path="buy_singles_scene/CollectionGrid/Card7"]
+[editable path="buy_singles_scene/CollectionGrid/Card8"]
