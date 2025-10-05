@@ -1,3 +1,74 @@
-[gd_scene format=3 uid="uid://wyi0mld4r5oe"]
+[gd_scene load_steps=18 format=3 uid="uid://wyi0mld4r5oe"]
 
-[node name="stage_1_work_scene" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_hcohb"]
+[ext_resource type="PackedScene" uid="uid://q38t2637560h" path="res://Prefabs/mower.tscn" id="1_llvil"]
+[ext_resource type="Script" uid="uid://dsesje245xgdr" path="res://Scripts/stage_1_work_controller.gd" id="1_mjqi5"]
+[ext_resource type="Script" uid="uid://dit7pjcsdocbf" path="res://Scripts/grass_controller.gd" id="1_v8wke"]
+[ext_resource type="PackedScene" uid="uid://cgmkndn27kfii" path="res://Prefabs/GrassPatterns/grass_pattern_1_1.tscn" id="2_nhjs3"]
+[ext_resource type="PackedScene" uid="uid://6flu2vqfid75" path="res://Prefabs/GrassPatterns/grass_pattern_1_2.tscn" id="3_ux37o"]
+[ext_resource type="PackedScene" uid="uid://0ggkux4iv26p" path="res://Prefabs/rock_space.tscn" id="4_2y1sh"]
+[ext_resource type="PackedScene" uid="uid://cs45ucvx277qf" path="res://Prefabs/GrassPatterns/grass_pattern_1_3.tscn" id="4_llvil"]
+[ext_resource type="PackedScene" uid="uid://crke5ovad7kx5" path="res://Prefabs/coin_scene.tscn" id="4_tammj"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="8_2xsus"]
+[ext_resource type="PackedScene" uid="uid://d0i0r2ljwnps" path="res://Prefabs/circle_timer.tscn" id="9_8jxk4"]
+[ext_resource type="PackedScene" uid="uid://by8clgsi8ymnl" path="res://Prefabs/GrassPatterns/grass_pattern_2_1.tscn" id="9_pxll7"]
+[ext_resource type="PackedScene" uid="uid://dq7omrvwif61g" path="res://Prefabs/GrassPatterns/grass_pattern_2_2.tscn" id="10_l6klv"]
+[ext_resource type="PackedScene" uid="uid://bbb7u5gy4rstp" path="res://Prefabs/GrassPatterns/grass_pattern_2_3.tscn" id="11_qy2dc"]
+[ext_resource type="PackedScene" uid="uid://b4b88b5l857r1" path="res://Prefabs/GrassPatterns/grass_pattern_3_1.tscn" id="12_jqxug"]
+[ext_resource type="PackedScene" uid="uid://b6i5ur8eeai1f" path="res://Prefabs/GrassPatterns/grass_pattern_3_2.tscn" id="13_loahu"]
+[ext_resource type="PackedScene" uid="uid://dnm2yunijmaha" path="res://Prefabs/GrassPatterns/grass_pattern_3_3.tscn" id="14_facah"]
+
+[node name="stage_1_work_scene" type="Node2D" node_paths=PackedStringArray("grass_controller", "instructions_text", "mower", "circle_timer")]
+script = ExtResource("1_mjqi5")
+grass_controller = NodePath("GrassController")
+instructions_text = NodePath("InstructionsText")
+instructions_phrases = Array[String](["Mow Lawns!", "Watch Out!", "Watch Out!"])
+mower = NodePath("Mower")
+celebration_phrases = Array[String](["Nice!", "Great Job!", "Very Good!", "Woo!"])
+circle_timer = NodePath("Circle_Timer")
+
+[node name="Mower" parent="." instance=ExtResource("1_llvil")]
+position = Vector2(135, 540)
+
+[node name="GrassController" type="Node2D" parent="." node_paths=PackedStringArray("grass_pattern_spawn_point")]
+script = ExtResource("1_v8wke")
+coin_scene = ExtResource("4_tammj")
+rock_scene = ExtResource("4_2y1sh")
+number_rocks_day_two_min = 2
+number_rocks_day_two_max = 4
+number_rocks_day_three_min = 3
+number_rocks_day_three_max = 7
+grass_pattern_spawn_point = NodePath("../GrassSpawnPoint")
+grass_paterns_day_one = Array[PackedScene]([ExtResource("2_nhjs3"), ExtResource("3_ux37o"), ExtResource("4_llvil")])
+grass_paterns_day_two = Array[PackedScene]([ExtResource("2_nhjs3"), ExtResource("3_ux37o"), ExtResource("4_llvil"), ExtResource("9_pxll7"), ExtResource("10_l6klv"), ExtResource("11_qy2dc")])
+grass_paterns_day_three = Array[PackedScene]([ExtResource("2_nhjs3"), ExtResource("3_ux37o"), ExtResource("4_llvil"), ExtResource("9_pxll7"), ExtResource("10_l6klv"), ExtResource("11_qy2dc"), ExtResource("12_jqxug"), ExtResource("13_loahu"), ExtResource("14_facah")])
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("1_hcohb")
+
+[node name="GrassSpawnPoint" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="InstructionsText" type="RichTextLabel" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 420.0
+offset_top = 224.0
+offset_right = 1504.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("8_2xsus")
+theme_override_font_sizes/normal_font_size = 200
+text = "Mow Lawns!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Circle_Timer" parent="." instance=ExtResource("9_8jxk4")]

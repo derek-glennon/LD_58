@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://0dkpefoda0sr"]
+
+[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_wjjiy"]
+[ext_resource type="Script" uid="uid://dxos6kh07phhl" path="res://Scripts/stage_3_work_controller.gd" id="1_x6fl0"]
+[ext_resource type="PackedScene" uid="uid://crke5ovad7kx5" path="res://Prefabs/coin_scene.tscn" id="2_kgqox"]
+[ext_resource type="PackedScene" uid="uid://d0i0r2ljwnps" path="res://Prefabs/circle_timer.tscn" id="3_hg6ak"]
+[ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_h1kpw"]
+
+[node name="stage_3_work_scene" type="Node2D" node_paths=PackedStringArray("instructions_text", "circle_timer")]
+script = ExtResource("1_x6fl0")
+coin_scene = ExtResource("2_kgqox")
+instructions_text = NodePath("InstructionsText")
+starting_phrases = Array[String](["Work", "Work Again...", "...and again", "..."])
+circle_timer = NodePath("Circle_Timer")
+random_inputs = Array[String](["key q", "key w", "key e", "key r", "key t", "key y", "ket u", "key i", "key o", "key p", "key a", "key s", "key d", "key f", "key g", "key h", "key j", "key k", "key l", "key z", "key x", "key c", "key v", "key b", "key n", "key m"])
+command_phrases = Array[String]([" ", " ", " ", " ", " ", " ", "to complete the task", "to send the email", "to get a promotion", "to find purpose", " ", " ", " ", " ", " ", " "])
+correct_phrases = Array[String](["sufficient", "adequate", "satisfactory", "meets expectations"])
+incorrect_phrases = Array[String](["incorrect"])
+celebration_phrases = Array[String](["work complete"])
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("1_wjjiy")
+
+[node name="Circle_Timer" parent="." instance=ExtResource("3_hg6ak")]
+
+[node name="InstructionsText" type="RichTextLabel" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 224.0
+offset_right = 1877.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_h1kpw")
+theme_override_font_sizes/normal_font_size = 150
+text = "Work"
+horizontal_alignment = 1
+vertical_alignment = 1

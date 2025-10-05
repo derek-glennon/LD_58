@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://crke5ovad7kx5"]
+
+[ext_resource type="Texture2D" uid="uid://dej0u8dovgdtl" path="res://Textures/stage_1_money_icon.png" id="1_i4lt7"]
+
+[node name="CoinScene" type="TextureRect"]
+z_index = 3
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_i4lt7")

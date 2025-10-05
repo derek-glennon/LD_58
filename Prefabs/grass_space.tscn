@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhm7abtkedttn"]
+
+[ext_resource type="Texture2D" uid="uid://drb3pe6xuixny" path="res://Textures/grass_space.png" id="1_i5s0r"]
+[ext_resource type="Script" uid="uid://il30dtvwgehy" path="res://Scripts/grass_space.gd" id="1_y8mu7"]
+[ext_resource type="Texture2D" uid="uid://bdg7cgssjak5c" path="res://Textures/grass_space_mowed.png" id="3_b1jku"]
+[ext_resource type="PackedScene" uid="uid://crke5ovad7kx5" path="res://Prefabs/coin_scene.tscn" id="4_b4krt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1jku"]
+size = Vector2(100, 100)
+
+[node name="GrassSpace" type="Node2D" node_paths=PackedStringArray("grass_sprite", "collision_shape")]
+script = ExtResource("1_y8mu7")
+grass_sprite = NodePath("Grass")
+grass_texture = ExtResource("1_i5s0r")
+grass_mowed_texture = ExtResource("3_b1jku")
+collision_shape = NodePath("Area2D/CollisionShape2D")
+coin_scene = ExtResource("4_b4krt")
+
+[node name="Grass" type="Sprite2D" parent="."]
+texture = ExtResource("1_i5s0r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b1jku")
+disabled = true
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

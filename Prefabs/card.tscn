@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://di5pcti1kalii"]
+[gd_scene load_steps=9 format=3 uid="uid://di5pcti1kalii"]
 
 [ext_resource type="Script" uid="uid://b4kxb8jpjehd6" path="res://Scripts/card.gd" id="1_xaftv"]
 [ext_resource type="Texture2D" uid="uid://by1mxs7e160y1" path="res://Textures/card_frame.png" id="2_u6lgx"]
@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://5fx2wfu8obhs" path="res://Textures/mystery_card.png" id="5_ho6ls"]
 [ext_resource type="Texture2D" uid="uid://fdyr3kpxsaj" path="res://Textures/buy_single_button.png" id="6_x5x4h"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swlqs"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5x4h"]
 
 [node name="Card" type="TextureRect" node_paths=PackedStringArray("card_text", "card_number_text", "mystery_card", "buy_single_button", "cost_text")]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 500.0
+offset_bottom = 700.0
 texture = ExtResource("2_ue66k")
 script = ExtResource("1_xaftv")
 card_text = NodePath("CardText")
@@ -55,6 +57,7 @@ layout_mode = 0
 offset_right = 500.0
 offset_bottom = 700.0
 mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_swlqs")
 icon = ExtResource("5_ho6ls")
 
 [node name="BuySingleButton" type="Button" parent="."]

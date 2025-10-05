@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bop4nfsw811wm"]
+
+[ext_resource type="Script" uid="uid://bcain0v17bf8g" path="res://Scripts/grass_pattern.gd" id="1_xu3j2"]
+
+[node name="GrassPattern" type="Node2D"]
+script = ExtResource("1_xu3j2")

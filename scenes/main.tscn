@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://crw05pw5v77l0"]
+[gd_scene load_steps=8 format=3 uid="uid://crw05pw5v77l0"]
 
 [ext_resource type="PackedScene" uid="uid://ddrfrk1qtsvxu" path="res://Prefabs/collection_button.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://b302md8wkqu2x" path="res://scenes/main_menu.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c7fei5wby7p2u" path="res://Prefabs/money_ui.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://ddtmwmfk2epqy" path="res://scenes/collection_scene.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dlqqlgs0ley0m" path="res://scenes/buy_scene.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://wyi0mld4r5oe" path="res://scenes/stage_1_work_scene.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://0dkpefoda0sr" path="res://scenes/stage_3_work_scene.tscn" id="5_o6xl0"]
 
 [node name="main" type="Node2D"]
 
 [node name="main_menu" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="WorkButton" parent="main_menu/Background" index="0" node_paths=PackedStringArray("main_menu_scene", "work_scenes", "work_controller_1", "work_controller_3")]
+main_menu_scene = NodePath("../..")
+work_scenes = [NodePath("../../../stage_1_work_scene"), NodePath("../../../stage_3_work_scene"), NodePath("../../../stage_3_work_scene")]
+work_controller_1 = NodePath("../../../stage_1_work_scene")
+work_controller_3 = NodePath("../../../stage_3_work_scene")
 
 [node name="BuyButton" parent="main_menu/Background" index="1" node_paths=PackedStringArray("main_menu_scene", "buy_scene")]
 main_menu_scene = NodePath("../..")
@@ -22,9 +30,17 @@ collection_button = NodePath("../CanvasLayer/CollectionButton")
 [node name="collection_scene" parent="." instance=ExtResource("2_jyhfs")]
 visible = false
 
+[node name="stage_1_work_scene" parent="." node_paths=PackedStringArray("main_menu_scene") instance=ExtResource("4_tefeu")]
+visible = false
+main_menu_scene = NodePath("../main_menu")
+
+[node name="stage_3_work_scene" parent="." node_paths=PackedStringArray("main_menu_scene") instance=ExtResource("5_o6xl0")]
+visible = false
+main_menu_scene = NodePath("../main_menu")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollectionButton" parent="CanvasLayer" node_paths=PackedStringArray("main_menu_scene", "buy_scene", "collection_scene") instance=ExtResource("1_o5qli")]
+[node name="CollectionButton" parent="CanvasLayer" node_paths=PackedStringArray("main_menu_scene", "buy_scene", "collection_scene", "collection_grid") instance=ExtResource("1_o5qli")]
 offset_left = 1745.0
 offset_top = 914.0
 offset_right = 1745.0
@@ -32,14 +48,16 @@ offset_bottom = 914.0
 main_menu_scene = NodePath("../../main_menu")
 buy_scene = NodePath("../../buy_scene")
 collection_scene = NodePath("../../collection_scene")
+collection_grid = NodePath("../../collection_scene/CollectionGrid")
 
 [node name="MoneyUI" parent="CanvasLayer" instance=ExtResource("2_0wfyh")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -305.0
-offset_right = -1.0
+offset_left = -353.0
+offset_right = 1.0
 grow_horizontal = 0
 
 [editable path="main_menu"]
 [editable path="buy_scene"]
+[editable path="collection_scene"]

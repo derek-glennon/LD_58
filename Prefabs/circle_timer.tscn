@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0i0r2ljwnps"]
+
+[ext_resource type="Shader" uid="uid://w12pc7ctd64l" path="res://Shaders/circle_timer.gdshader" id="1_4jrpt"]
+[ext_resource type="Script" uid="uid://bodm3fcfpndv7" path="res://Scripts/circle_timer.gd" id="2_b3ckv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3ckv"]
+shader = ExtResource("1_4jrpt")
+shader_parameter/time_max = 1.0
+shader_parameter/circle_size = 0.55
+shader_parameter/current_time = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sihac"]
+
+[node name="Circle_Timer" type="TextureRect"]
+material = SubResource("ShaderMaterial_b3ckv")
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_sihac")
+script = ExtResource("2_b3ckv")

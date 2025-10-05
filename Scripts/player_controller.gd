@@ -9,9 +9,13 @@ var collection_grid
 var day := 1
 var stage := 1
 var current_scene := Enums.CurrentScene.MAIN
+var is_opening_pack := false
+var money_ui
 
 signal card_unlocked
 signal money_amount_changed
+signal current_scene_changed
+signal day_changed
 signal stage_changed
 
 # Called when the node enters the scene tree for the first time.
@@ -42,6 +46,15 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug 2"):
 		money += 1
 		change_money(money)
+	if Input.is_action_just_pressed("debug add 100"):
+		money += 100
+		change_money(money)
+	if Input.is_action_just_pressed("debug day 1"):
+		change_day(1)
+	if Input.is_action_just_pressed("debug day 2"):
+		change_day(2)
+	if Input.is_action_just_pressed("debug day 3"):
+		change_day(3)
 	if Input.is_action_just_pressed("debug stage 1"):
 		change_stage(1)
 	if Input.is_action_just_pressed("debug stage 2"):
@@ -70,7 +83,12 @@ func change_money(new_value : int) -> void:
 	
 func change_current_scene (new_value : Enums.CurrentScene) -> void:
 	current_scene = new_value
+	current_scene_changed.emit(new_value)
 	
 func change_stage(new_value: int) -> void:
 	stage = new_value
 	stage_changed.emit(new_value)
+	
+func change_day(new_value: int) -> void:
+	day = new_value
+	day_changed.emit(new_value)
