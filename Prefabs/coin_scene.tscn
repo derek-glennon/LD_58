@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://crke5ovad7kx5"]
+[gd_scene load_steps=4 format=3 uid="uid://crke5ovad7kx5"]
 
 [ext_resource type="Texture2D" uid="uid://dej0u8dovgdtl" path="res://Textures/stage_1_money_icon.png" id="1_i4lt7"]
+[ext_resource type="Script" uid="uid://l35tl3q6lvr6" path="res://Scripts/coin_scene.gd" id="2_dfr6i"]
+[ext_resource type="AudioStream" uid="uid://cex7f0tpexr5c" path="res://Audio/pop.wav" id="3_x3oqk"]
 
-[node name="CoinScene" type="TextureRect"]
+[node name="CoinScene" type="TextureRect" node_paths=PackedStringArray("audio_player")]
 z_index = 20
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_i4lt7")
+script = ExtResource("2_dfr6i")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x3oqk")
+volume_db = 5.0
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

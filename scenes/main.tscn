@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://crw05pw5v77l0"]
+[gd_scene load_steps=45 format=3 uid="uid://crw05pw5v77l0"]
 
 [ext_resource type="Script" uid="uid://d177w8h5cvv6n" path="res://Scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://ddrfrk1qtsvxu" path="res://Prefabs/collection_button.tscn" id="1_o5qli"]
@@ -42,6 +42,8 @@
 [ext_resource type="PackedScene" uid="uid://bofym841ud3fm" path="res://Prefabs/Cards/card_30.tscn" id="31_a82wo"]
 [ext_resource type="PackedScene" uid="uid://bb0n1ygxwpwh3" path="res://Prefabs/Cards/card_31.tscn" id="32_gdvew"]
 [ext_resource type="PackedScene" uid="uid://cd2q6grgyf27d" path="res://Prefabs/Cards/card_32.tscn" id="33_kjtvk"]
+[ext_resource type="AudioStream" uid="uid://cex7f0tpexr5c" path="res://Audio/pop.wav" id="42_cjqg0"]
+[ext_resource type="AudioStream" uid="uid://d26bs1ptklgwn" path="res://Audio/background_music.wav" id="43_chjal"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_choun")
@@ -85,7 +87,7 @@ visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollectionButton" parent="CanvasLayer" node_paths=PackedStringArray("main_menu_scene", "buy_scene", "collection_scene", "collection_grid") instance=ExtResource("1_o5qli")]
+[node name="CollectionButton" parent="CanvasLayer" node_paths=PackedStringArray("main_menu_scene", "buy_scene", "collection_scene", "collection_grid", "audio_player") instance=ExtResource("1_o5qli")]
 offset_left = 1745.0
 offset_top = 914.0
 offset_right = 1745.0
@@ -94,6 +96,11 @@ main_menu_scene = NodePath("../../main_menu")
 buy_scene = NodePath("../../buy_scene")
 collection_scene = NodePath("../../collection_scene")
 collection_grid = NodePath("../../collection_scene/CollectionGrid")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/CollectionButton"]
+stream = ExtResource("42_cjqg0")
+volume_db = 5.0
 
 [node name="MoneyUI" parent="CanvasLayer" instance=ExtResource("2_0wfyh")]
 anchors_preset = 1
@@ -102,6 +109,11 @@ anchor_right = 1.0
 offset_left = -353.0
 offset_right = 1.0
 grow_horizontal = 0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_chjal")
+volume_db = -10.0
+autoplay = true
 
 [editable path="main_menu"]
 [editable path="buy_scene"]

@@ -29,7 +29,6 @@ func _ready() -> void:
 		var node_main_menu := node as MainMenu
 		if node_main_menu:
 			main_menu = node_main_menu
-			#prints(node)
 		var node_main := node as MainNode
 		if node_main:
 			main_node = node_main

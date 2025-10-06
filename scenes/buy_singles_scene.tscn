@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://xs5v87boyt5q"]
+[gd_scene load_steps=9 format=3 uid="uid://xs5v87boyt5q"]
 
 [ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_aspj1"]
 [ext_resource type="PackedScene" uid="uid://bt1xri2xfcllm" path="res://Prefabs/collection_grid.tscn" id="2_803o0"]
 [ext_resource type="Texture2D" uid="uid://l6y8m1ivb8tu" path="res://Textures/stage_1_button_background.png" id="3_g18xe"]
 [ext_resource type="Texture2D" uid="uid://dwnm6bnpptnnw" path="res://Textures/right_arrow.png" id="4_rgssc"]
+[ext_resource type="AudioStream" uid="uid://cex7f0tpexr5c" path="res://Audio/pop.wav" id="5_803o0"]
 [ext_resource type="Texture2D" uid="uid://qy0mx0pqps00" path="res://Textures/left_arrow.png" id="5_mokaj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8dl7o"]
@@ -17,34 +18,36 @@ z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("1_aspj1")
 
-[node name="CollectionGrid" parent="." instance=ExtResource("2_803o0")]
+[node name="CollectionGrid" parent="." node_paths=PackedStringArray("right_button_audio_player", "left_button_audio_player") instance=ExtResource("2_803o0")]
 offset_left = 353.0
 offset_top = 109.0
 offset_right = 2803.0
 offset_bottom = 1659.0
+right_button_audio_player = NodePath("../RightButton/AudioStreamPlayer")
+left_button_audio_player = NodePath("../LeftButton/AudioStreamPlayer")
 
-[node name="BuySingleButton" parent="CollectionGrid/Card" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card2" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card2" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card3" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card3" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card4" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card4" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card5" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card5" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card6" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card6" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card7" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card7" index="6"]
 visible = true
 
-[node name="BuySingleButton" parent="CollectionGrid/Card8" index="4"]
+[node name="BuySingleButton" parent="CollectionGrid/Card8" index="6"]
 visible = true
 
 [node name="RightButton" type="Button" parent="."]
@@ -71,6 +74,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_rgssc")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RightButton"]
+stream = ExtResource("5_803o0")
+volume_db = 5.0
+
 [node name="LeftButton" type="Button" parent="."]
 offset_left = 67.0
 offset_top = 412.0
@@ -94,6 +101,10 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_mokaj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LeftButton"]
+stream = ExtResource("5_803o0")
+volume_db = 5.0
 
 [connection signal="pressed" from="RightButton" to="CollectionGrid" method="_on_right_button_pressed"]
 [connection signal="pressed" from="LeftButton" to="CollectionGrid" method="_on_left_button_pressed"]

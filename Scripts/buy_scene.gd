@@ -14,6 +14,11 @@ extends Node2D
 @export var pack_scene : PackedScene
 @export var rare_pack_scene : PackedScene
 
+@export var back_button_audio_player : AudioStreamPlayer
+@export var pack_button_audio_player : AudioStreamPlayer
+@export var rare_pack_button_audio_player : AudioStreamPlayer
+@export var singles_button_audio_player : AudioStreamPlayer
+
 var opening_pack : CardPack
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +26,7 @@ func _ready() -> void:
 	PlayerController.stage_changed.connect(_on_stage_changed)		
 
 func _on_buy_pack_button_pressed() -> void:
+	pack_button_audio_player.play()
 	if PlayerController.money >= pack_cost:
 		PlayerController.change_money(PlayerController.money - pack_cost)
 		_toggle_for_pack_opening(true)
@@ -30,6 +36,7 @@ func _on_buy_pack_button_pressed() -> void:
 		pack_spawn_point.add_child(opening_pack)
 		
 func _on_buy_rare_pack_button_pressed() -> void:
+	rare_pack_button_audio_player.play()
 	if PlayerController.money >= rare_pack_cost:
 		PlayerController.change_money(PlayerController.money - rare_pack_cost)
 		_toggle_for_pack_opening(true)
@@ -39,6 +46,7 @@ func _on_buy_rare_pack_button_pressed() -> void:
 		pack_spawn_point.add_child(opening_pack)
 		
 func _on_buy_singles_button_pressed() -> void:
+	singles_button_audio_player.play()
 	pack_button.visible = false
 	rare_pack_button.visible = false
 	buy_singles_button.visible = false
@@ -46,6 +54,7 @@ func _on_buy_singles_button_pressed() -> void:
 	buy_singles_grid.update_visible_cards()
 
 func _on_back_button_pressed() -> void:
+	back_button_audio_player.play()
 	if buy_singles_scene.visible:
 		pack_button.visible = true
 		rare_pack_button.visible = true

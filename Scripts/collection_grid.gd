@@ -5,6 +5,8 @@ extends GridContainer
 var current_page = 0
 @export var max_page = -1
 @export var visible_cards: Array[Card] = []
+@export var right_button_audio_player : AudioStreamPlayer
+@export var left_button_audio_player : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +14,6 @@ func _ready() -> void:
 	
 func init() -> void:
 	max_page = (PlayerController.all_cards.size() / 8) - 1
-	#prints(PlayerController.all_cards.size())
 	for i in range(visible_cards.size()):
 		visible_cards[i].clone_card(PlayerController.all_cards[current_page + i])
 	
@@ -26,11 +27,13 @@ func _on_card_unlocked(card: Card) -> void:
 
 func _on_right_button_pressed() -> void:
 	if current_page < max_page:
+		right_button_audio_player.play()
 		current_page += 1
 		update_visible_cards()
 
 func _on_left_button_pressed() -> void:
 	if current_page > 0:
+		left_button_audio_player.play()
 		current_page -= 1
 		update_visible_cards()
 			

@@ -29,6 +29,12 @@ extends TextureRect
 @export var explosion_scene : PackedScene
 @export var rare_explosion_scene : PackedScene
 @export var ultrarare_explosion_scene : PackedScene
+@export var buy_single_audio_player : AudioStreamPlayer
+@export var reveal_audio_player : AudioStreamPlayer
+@export var common_audio : AudioStreamWAV
+@export var uncommon_audio : AudioStreamWAV
+@export var rare_audio : AudioStreamWAV
+@export var ultrarare_audio : AudioStreamWAV
 
 var is_unlocked := false
 var money_ui
@@ -97,6 +103,7 @@ func clone_card(card: Card) -> void:
 
 func _on_buy_single_button_pressed() -> void:
 	if PlayerController.money >= cost:
+		buy_single_audio_player.play()
 		PlayerController.change_money(PlayerController.money - cost)
 		var card_to_unlock = PlayerController.find_card_by_number(card_number)
 		if card_to_unlock:
@@ -120,6 +127,7 @@ func _on_mystery_card_pressed() -> void:
 			tween.set_parallel(true)
 			tween.tween_property(mystery_card, "self_modulate:a", 0.0, reveal_mystery_card_duration)
 			tween.tween_callback(_spawn_explosion).set_delay(reveal_mystery_card_duration - 0.3)
+			tween.tween_callback(_play_yay_audio).set_delay(reveal_mystery_card_duration - 0.2)
 			tween.tween_method(_bounce_curve, 0.0, 1.0, bounce_card_duration).set_delay(reveal_mystery_card_duration)
 			if is_new:
 				tween.tween_method(_new_texture_bounce, 0.0, 1.0, bounce_card_duration).set_delay(reveal_mystery_card_duration + new_texture_bounce_delay)
@@ -150,6 +158,19 @@ func _spawn_explosion():
 		get_tree().root.add_child(explosion)
 		explosion.global_position = Vector2(960.0, 540.0)
 		explosion.explode()
+
+func _play_yay_audio():
+	var audio_clip = common_audio
+	match rarity:
+		Enums.Rarity.UNCOMMON:
+			audio_clip = uncommon_audio
+		Enums.Rarity.RARE:
+			audio_clip = rare_audio
+		Enums.Rarity.ULTRARARE:
+			audio_clip = ultrarare_audio
+	
+	reveal_audio_player.stream = audio_clip
+	reveal_audio_player.play()
 
 func _bounce_curve(progress):
 	var new_scale = bounce_card_curve.sample(progress)
@@ -190,13 +211,14 @@ func _on_sell_animation_done() -> void:
 			_on_emit_coin(coin_scene.instantiate(), Vector2(960, 540), 0.5)
 			
 func _on_emit_coin(coin : Node, start_position : Vector2, duration : float) -> void:
-	get_tree().root.add_child(coin)
-	coin.global_position = start_position
+	var new_coin = coin as Coin
+	get_tree().root.add_child(new_coin)
+	new_coin.global_position = start_position
 	var tween = get_tree().create_tween()
 	tween.set_parallel()
-	tween.tween_property(coin, "position", PlayerController.money_ui.position, duration)
-	tween.tween_property(coin, "scale", Vector2(0.2, 0.2), duration)
-	tween.tween_callback(coin.queue_free).set_delay(duration)
+	tween.tween_property(new_coin, "position", PlayerController.money_ui.position, duration)
+	tween.tween_property(new_coin, "scale", Vector2(0.2, 0.2), duration)
+	tween.tween_callback(new_coin.play_audio).set_delay(duration)
 	var timer = get_tree().create_timer(duration)
 	timer.timeout.connect(_on_coin_collected)
 	

@@ -7,12 +7,14 @@ extends Button
 @export var collection_scene : Node
 @export var collection_grid : CollectionGrid
 var previous_scene := Enums.CurrentScene.MAIN
+@export var audio_player : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerController.current_scene_changed.connect(_on_scene_changed)
 
 func _on_pressed() -> void:
+	audio_player.play()
 	collection_scene.visible = !collection_scene.visible
 
 	if collection_scene.visible:

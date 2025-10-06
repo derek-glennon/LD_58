@@ -7,11 +7,14 @@ extends Button
 @export var work_controller_2 : StageTwoWorkController
 @export var work_controller_3 : StageThreeWorkController
 
+@export var audio_player : AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_pressed() -> void:
+	audio_player.play()
 	main_menu_scene.visible = false
 	work_scenes[PlayerController.stage - 1].visible = true
 	PlayerController.change_current_scene(Enums.CurrentScene.WORK)

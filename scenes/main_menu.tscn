@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b302md8wkqu2x"]
+[gd_scene load_steps=12 format=3 uid="uid://b302md8wkqu2x"]
 
 [ext_resource type="Texture2D" uid="uid://cakx5neafsixu" path="res://Textures/Backgrounds/main_menu.png" id="1_rtw2f"]
 [ext_resource type="Script" uid="uid://4k4o70qxe7oo" path="res://Scripts/main_menu.gd" id="1_tbmy8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b0ppixld2er2i" path="res://Scripts/work_button.gd" id="3_wu84c"]
 [ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_8ln24"]
 [ext_resource type="Script" uid="uid://d20go424e3f43" path="res://Scripts/buy_button.gd" id="5_8ln24"]
+[ext_resource type="AudioStream" uid="uid://cex7f0tpexr5c" path="res://Audio/pop.wav" id="6_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://d06uq07hnea7h" path="res://Textures/KEYS.png" id="6_oa1go"]
 [ext_resource type="Texture2D" uid="uid://dkgiic2ra7ubx" path="res://Textures/job_offer.png" id="7_oa1go"]
 
@@ -23,7 +24,7 @@ z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("1_rtw2f")
 
-[node name="WorkButton" type="Button" parent="Background"]
+[node name="WorkButton" type="Button" parent="Background" node_paths=PackedStringArray("audio_player")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,6 +40,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
 icon = ExtResource("2_ekxnf")
 flat = true
 script = ExtResource("3_wu84c")
+audio_player = NodePath("AudioStreamPlayer")
 
 [node name="WorkText" type="RichTextLabel" parent="Background/WorkButton"]
 layout_mode = 1
@@ -61,7 +63,11 @@ text = "Work
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BuyButton" type="Button" parent="Background"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background/WorkButton"]
+stream = ExtResource("6_jk1qb")
+volume_db = 5.0
+
+[node name="BuyButton" type="Button" parent="Background" node_paths=PackedStringArray("audio_player")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,6 +83,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wu84c")
 icon = ExtResource("2_ekxnf")
 flat = true
 script = ExtResource("5_8ln24")
+audio_player = NodePath("AudioStreamPlayer")
 
 [node name="BuyText" type="RichTextLabel" parent="Background/BuyButton"]
 layout_mode = 1
@@ -97,6 +104,10 @@ theme_override_font_sizes/normal_font_size = 100
 text = "Buy"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background/BuyButton"]
+stream = ExtResource("6_jk1qb")
+volume_db = 5.0
 
 [node name="Keys" type="Sprite2D" parent="."]
 visible = false

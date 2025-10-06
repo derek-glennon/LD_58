@@ -104,13 +104,14 @@ func _on_spawn_delay() -> void:
 	_spawn_new_pattern()
 	
 func _on_emit_coin(coin : Node, start_position : Vector2, duration : float) -> void:
-	add_child(coin)
-	coin.global_position = start_position
+	var new_coin = coin as Coin
+	add_child(new_coin)
+	new_coin.global_position = start_position
 	var tween = get_tree().create_tween()
 	tween.set_parallel()
-	tween.tween_property(coin, "position", PlayerController.money_ui.position, duration)
-	tween.tween_property(coin, "scale", Vector2(0.2, 0.2), duration)
-	tween.tween_callback(coin.queue_free).set_delay(duration)
+	tween.tween_property(new_coin, "position", PlayerController.money_ui.position, duration)
+	tween.tween_property(new_coin, "scale", Vector2(0.2, 0.2), duration)
+	tween.tween_callback(new_coin.play_audio).set_delay(duration)
 	var timer = get_tree().create_timer(duration)
 	timer.timeout.connect(_on_coin_collected)
 	

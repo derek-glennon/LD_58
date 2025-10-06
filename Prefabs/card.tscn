@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://di5pcti1kalii"]
+[gd_scene load_steps=21 format=3 uid="uid://di5pcti1kalii"]
 
 [ext_resource type="Script" uid="uid://b4kxb8jpjehd6" path="res://Scripts/card.gd" id="1_xaftv"]
 [ext_resource type="Texture2D" uid="uid://by1mxs7e160y1" path="res://Textures/card_frame.png" id="2_u6lgx"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://5fx2wfu8obhs" path="res://Textures/mystery_card.png" id="5_ho6ls"]
 [ext_resource type="Texture2D" uid="uid://fdyr3kpxsaj" path="res://Textures/buy_single_button.png" id="6_x5x4h"]
 [ext_resource type="PackedScene" uid="uid://dkls5formsih6" path="res://Prefabs/ultrarare_explosion.tscn" id="6_xh07h"]
+[ext_resource type="AudioStream" uid="uid://ca0shw7mg2mvh" path="res://Audio/uncommon_yay.wav" id="8_gyl7k"]
+[ext_resource type="AudioStream" uid="uid://cw22f2l3seyd3" path="res://Audio/rare_yay.wav" id="9_6e7yt"]
+[ext_resource type="AudioStream" uid="uid://dmrqe7nq32ci5" path="res://Audio/ultrarare_yay.wav" id="10_7ayoe"]
+[ext_resource type="AudioStream" uid="uid://cex7f0tpexr5c" path="res://Audio/pop.wav" id="11_xh07h"]
+[ext_resource type="AudioStream" uid="uid://yhf1hw4rggcc" path="res://Audio/common_yay.wav" id="13_saxp7"]
 
 [sub_resource type="Curve" id="Curve_swlqs"]
 _limits = [1.0, 2.0, 0.0, 1.0]
@@ -26,7 +31,7 @@ point_count = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5x4h"]
 
-[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_title_text", "card_description_text", "card_number_text", "card_rarity_text", "mystery_card", "buy_single_button", "cost_text", "new_texture")]
+[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_title_text", "card_description_text", "card_number_text", "card_rarity_text", "mystery_card", "buy_single_button", "cost_text", "new_texture", "buy_single_audio_player", "reveal_audio_player")]
 z_index = 2
 offset_right = 500.0
 offset_bottom = 700.0
@@ -50,6 +55,12 @@ coin_scene = ExtResource("3_cd2ta")
 explosion_scene = ExtResource("4_1votm")
 rare_explosion_scene = ExtResource("5_giun8")
 ultrarare_explosion_scene = ExtResource("6_xh07h")
+buy_single_audio_player = NodePath("BuySingleButton/AudioStreamPlayer")
+reveal_audio_player = NodePath("AudioStreamPlayer")
+common_audio = ExtResource("13_saxp7")
+uncommon_audio = ExtResource("8_gyl7k")
+rare_audio = ExtResource("9_6e7yt")
+ultrarare_audio = ExtResource("10_7ayoe")
 
 [node name="CardFrame" type="TextureRect" parent="."]
 layout_mode = 0
@@ -161,6 +172,10 @@ text = "-1 - Buy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BuySingleButton"]
+stream = ExtResource("11_xh07h")
+volume_db = 5.0
+
 [node name="NewTexture" type="TextureRect" parent="."]
 visible = false
 z_index = 3
@@ -172,6 +187,10 @@ offset_bottom = 122.0
 rotation = -0.42346284
 pivot_offset = Vector2(140, 140)
 texture = ExtResource("4_swlqs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_saxp7")
+volume_db = 10.0
 
 [connection signal="pressed" from="MysteryCard" to="." method="_on_mystery_card_pressed"]
 [connection signal="pressed" from="BuySingleButton" to="." method="_on_buy_single_button_pressed"]
