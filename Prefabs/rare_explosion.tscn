@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp6xssk4l7sem"]
+
+[ext_resource type="PackedScene" uid="uid://bm3gt55bxyd4k" path="res://Prefabs/explosion.tscn" id="1_w76gv"]
+
+[node name="Explosion" instance=ExtResource("1_w76gv")]
+
+[node name="CPUParticles2D" parent="." index="0"]
+color = Color(0.48235294, 0.68235296, 1, 1)

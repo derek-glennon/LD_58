@@ -29,6 +29,7 @@ func init() -> void:
 	if PlayerController.day == 2:
 		food_buttons[3].visible = true
 	elif PlayerController.day == 3:
+		food_buttons[3].visible = true
 		food_buttons[4].visible = true
 	var timer = get_tree().create_timer(starting_delay)
 	timer.timeout.connect(_on_starting_delay_over)
@@ -62,7 +63,6 @@ func _clear_food_items() ->void:
 	var nodes = HelperFunctions.get_all_children(self)
 	for node in nodes:
 		var food_item = node as FoodItem
-		prints(food_item)
 		if food_item:
 			food_item.queue_free()
 
@@ -157,6 +157,7 @@ func _on_tray_area_area_shape_exited(area_rid: RID, area: Area2D, area_shape_ind
 						working_order.cookies -= 1
 
 func _on_bell_button_pressed() -> void:
+	prints("pressed")
 	if working_order and is_bell_active:
 		var order_done := false
 		var equal_1 = working_order.hamburgers == target_order.hamburgers

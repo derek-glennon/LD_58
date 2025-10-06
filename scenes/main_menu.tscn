@@ -1,21 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://b302md8wkqu2x"]
+[gd_scene load_steps=11 format=3 uid="uid://b302md8wkqu2x"]
 
-[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://cakx5neafsixu" path="res://Textures/Backgrounds/main_menu.png" id="1_rtw2f"]
+[ext_resource type="Script" uid="uid://4k4o70qxe7oo" path="res://Scripts/main_menu.gd" id="1_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://b2p4otieq5jpw" path="res://Textures/stage_1_menu_button.png" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://b0ppixld2er2i" path="res://Scripts/work_button.gd" id="3_wu84c"]
 [ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_8ln24"]
 [ext_resource type="Script" uid="uid://d20go424e3f43" path="res://Scripts/buy_button.gd" id="5_8ln24"]
+[ext_resource type="Texture2D" uid="uid://d06uq07hnea7h" path="res://Textures/KEYS.png" id="6_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dkgiic2ra7ubx" path="res://Textures/job_offer.png" id="7_oa1go"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
 
-[node name="main_menu" type="Node2D"]
+[node name="main_menu" type="Node2D" node_paths=PackedStringArray("keys", "job_offer")]
+script = ExtResource("1_tbmy8")
+keys = NodePath("Keys")
+job_offer = NodePath("JobOffer")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(960, 540)
-texture = ExtResource("1_l6cm7")
+texture = ExtResource("1_rtw2f")
 
 [node name="WorkButton" type="Button" parent="Background"]
 anchors_preset = 8
@@ -91,6 +97,16 @@ theme_override_font_sizes/normal_font_size = 100
 text = "Buy"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Keys" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(276, 256)
+texture = ExtResource("6_oa1go")
+
+[node name="JobOffer" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1524, 533)
+texture = ExtResource("7_oa1go")
 
 [connection signal="pressed" from="Background/WorkButton" to="Background/WorkButton" method="_on_pressed"]
 [connection signal="pressed" from="Background/BuyButton" to="Background/BuyButton" method="_on_pressed"]

@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43bw0u7ou0eu"]
+[gd_scene load_steps=4 format=3 uid="uid://c43bw0u7ou0eu"]
 
 [ext_resource type="PackedScene" uid="uid://dqd1hf400nsyw" path="res://Prefabs/food_item.tscn" id="1_3d4u4"]
 [ext_resource type="Texture2D" uid="uid://j3q5s2afohhp" path="res://Textures/temp_food_item_3.png" id="2_3r112"]
 
-[node name="Hamburger" instance=ExtResource("1_3d4u4")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r112"]
+size = Vector2(240, 430)
+
+[node name="Drink" instance=ExtResource("1_3d4u4")]
+scale = Vector2(0.5, 0.5)
 icon = ExtResource("2_3r112")
 food_type = 2
+offset = Vector2(-75, -100)
+
+[node name="Area2D" parent="." index="0"]
+position = Vector2(153.475, 252.675)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(4.9999924, 6)
+shape = SubResource("RectangleShape2D_3r112")

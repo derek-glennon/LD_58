@@ -11,6 +11,7 @@ var stage := 1
 var current_scene := Enums.CurrentScene.MAIN
 var is_opening_pack := false
 var money_ui
+var main_menu : MainMenu
 
 signal card_unlocked
 signal money_amount_changed
@@ -37,6 +38,9 @@ func _ready() -> void:
 		if node_grid:
 			collection_grid = node_grid
 			collection_grid.init()
+		var node_main_menu := node as MainMenu
+		if node_main_menu:
+			main_menu = node_main_menu
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -94,6 +98,7 @@ func change_current_scene (new_value : Enums.CurrentScene) -> void:
 	
 func change_stage(new_value: int) -> void:
 	stage = new_value
+	main_menu.on_stage_changed(new_value)
 	stage_changed.emit(new_value)
 	
 func change_day(new_value: int) -> void:

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bejey3v5pjw7x" path="res://Scripts/stage_2_work_scene.gd" id="1_jmsle"]
 [ext_resource type="PackedScene" uid="uid://crke5ovad7kx5" path="res://Prefabs/coin_scene.tscn" id="2_d73j2"]
-[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="2_mqoe3"]
 [ext_resource type="Script" uid="uid://c3x7vntu8p5dr" path="res://Scripts/food_order_generator.gd" id="3_031wq"]
 [ext_resource type="PackedScene" uid="uid://d0i0r2ljwnps" path="res://Prefabs/circle_timer.tscn" id="3_cr5we"]
 [ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_cr5we"]
+[ext_resource type="Texture2D" uid="uid://diqgi3hy3sp87" path="res://Textures/Backgrounds/stage_2_game_background.png" id="4_sf2jr"]
 [ext_resource type="PackedScene" uid="uid://bcyxwfql7fcqs" path="res://Prefabs/food_item_hotbar.tscn" id="6_dl4so"]
 [ext_resource type="Texture2D" uid="uid://drrcqj7ttoys0" path="res://Textures/tray.png" id="7_dxb11"]
 [ext_resource type="Texture2D" uid="uid://dq2ahu13ladpn" path="res://Textures/order_page.png" id="8_mkayc"]
@@ -38,7 +38,7 @@ script = ExtResource("3_031wq")
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(960, 540)
-texture = ExtResource("2_mqoe3")
+texture = ExtResource("4_sf2jr")
 
 [node name="Circle_Timer" parent="." instance=ExtResource("3_cr5we")]
 
@@ -63,10 +63,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FoodItemHotbar" parent="." instance=ExtResource("6_dl4so")]
-offset_left = 559.0
-offset_top = 905.0
-offset_right = 1365.0
-offset_bottom = 1063.0
+offset_left = 369.0
+offset_top = 862.0
+offset_right = 1175.0
+offset_bottom = 1020.0
 
 [node name="HamburgerButton" parent="FoodItemHotbar" index="0" node_paths=PackedStringArray("work_scene")]
 work_scene = NodePath("../..")
@@ -147,10 +147,11 @@ position = Vector2(-5, 25.5)
 shape = SubResource("RectangleShape2D_8kksq")
 
 [node name="BellButton" type="Button" parent="."]
-offset_left = 1584.0
-offset_top = 239.0
-offset_right = 1892.0
-offset_bottom = 547.0
+offset_left = 1287.0
+offset_top = 819.0
+offset_right = 1595.0
+offset_bottom = 1127.0
+scale = Vector2(0.8, 0.8)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sf2jr")
 icon = ExtResource("10_8kksq")
 flat = true

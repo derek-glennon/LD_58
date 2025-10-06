@@ -1,19 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://di5pcti1kalii"]
+[gd_scene load_steps=16 format=3 uid="uid://di5pcti1kalii"]
 
 [ext_resource type="Script" uid="uid://b4kxb8jpjehd6" path="res://Scripts/card.gd" id="1_xaftv"]
 [ext_resource type="Texture2D" uid="uid://by1mxs7e160y1" path="res://Textures/card_frame.png" id="2_u6lgx"]
 [ext_resource type="Texture2D" uid="uid://btiepj0825f36" path="res://Textures/card_art.png" id="2_ue66k"]
+[ext_resource type="PackedScene" uid="uid://crke5ovad7kx5" path="res://Prefabs/coin_scene.tscn" id="3_cd2ta"]
+[ext_resource type="PackedScene" uid="uid://bm3gt55bxyd4k" path="res://Prefabs/explosion.tscn" id="4_1votm"]
 [ext_resource type="FontFile" uid="uid://b5unqo8cmgq11" path="res://fonts/SuperPlayful-e91WO.ttf" id="4_ho6ls"]
+[ext_resource type="Texture2D" uid="uid://d0vhuhxpjnltg" path="res://Textures/new.png" id="4_swlqs"]
+[ext_resource type="PackedScene" uid="uid://cp6xssk4l7sem" path="res://Prefabs/rare_explosion.tscn" id="5_giun8"]
 [ext_resource type="Texture2D" uid="uid://5fx2wfu8obhs" path="res://Textures/mystery_card.png" id="5_ho6ls"]
 [ext_resource type="Texture2D" uid="uid://fdyr3kpxsaj" path="res://Textures/buy_single_button.png" id="6_x5x4h"]
+[ext_resource type="PackedScene" uid="uid://dkls5formsih6" path="res://Prefabs/ultrarare_explosion.tscn" id="6_xh07h"]
+
+[sub_resource type="Curve" id="Curve_swlqs"]
+_limits = [1.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 2.174831, 2.174831, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_cd2ta"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 6.899164, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swlqs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5x4h"]
 
-[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_title_text", "card_description_text", "card_number_text", "card_rarity_text", "mystery_card", "buy_single_button", "cost_text")]
+[node name="Card" type="TextureRect" node_paths=PackedStringArray("card_title_text", "card_description_text", "card_number_text", "card_rarity_text", "mystery_card", "buy_single_button", "cost_text", "new_texture")]
+z_index = 2
 offset_right = 500.0
 offset_bottom = 700.0
+pivot_offset = Vector2(240, 350)
 texture = ExtResource("2_ue66k")
 script = ExtResource("1_xaftv")
 card_title_text = NodePath("CardTitle")
@@ -26,6 +43,13 @@ ultrarare_color = Color(1, 1, 1, 1)
 mystery_card = NodePath("MysteryCard")
 buy_single_button = NodePath("BuySingleButton")
 cost_text = NodePath("BuySingleButton/CostText")
+bounce_card_curve = SubResource("Curve_swlqs")
+new_texture_bounce = SubResource("Curve_cd2ta")
+new_texture = NodePath("NewTexture")
+coin_scene = ExtResource("3_cd2ta")
+explosion_scene = ExtResource("4_1votm")
+rare_explosion_scene = ExtResource("5_giun8")
+ultrarare_explosion_scene = ExtResource("6_xh07h")
 
 [node name="CardFrame" type="TextureRect" parent="."]
 layout_mode = 0
@@ -82,12 +106,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MysteryCard" type="Button" parent="."]
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 700.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -354.0
+offset_right = 254.0
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_swlqs")
 icon = ExtResource("5_ho6ls")
+flat = true
 
 [node name="BuySingleButton" type="Button" parent="."]
 visible = false
@@ -126,6 +160,18 @@ theme_override_font_sizes/normal_font_size = 50
 text = "-1 - Buy"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NewTexture" type="TextureRect" parent="."]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = -168.0
+offset_top = -178.0
+offset_right = 132.0
+offset_bottom = 122.0
+rotation = -0.42346284
+pivot_offset = Vector2(140, 140)
+texture = ExtResource("4_swlqs")
 
 [connection signal="pressed" from="MysteryCard" to="." method="_on_mystery_card_pressed"]
 [connection signal="pressed" from="BuySingleButton" to="." method="_on_buy_single_button_pressed"]

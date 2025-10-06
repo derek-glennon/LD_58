@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://j2y2f7kqdghu" path="res://Scripts/food_button.gd" id="2_x6hks"]
 [ext_resource type="PackedScene" uid="uid://svg3nunlfahs" path="res://Prefabs/Food/hamburger.tscn" id="3_dlsdh"]
 [ext_resource type="Texture2D" uid="uid://cg66nnvkeeiv8" path="res://Textures/burger_small.png" id="4_rh6bn"]
-[ext_resource type="Texture2D" uid="uid://6wxmjfsfo06u" path="res://Textures/temp_food_item_4.png" id="5_dlsdh"]
 [ext_resource type="PackedScene" uid="uid://br8qrphl76vfr" path="res://Prefabs/Food/fries.tscn" id="5_e2ipf"]
-[ext_resource type="Texture2D" uid="uid://bsuqmxre7iqud" path="res://Textures/temp_food_item_5.png" id="6_e2ipf"]
 [ext_resource type="Texture2D" uid="uid://bq5q2jn73g1mu" path="res://Textures/fries_small.png" id="6_rh6bn"]
 [ext_resource type="PackedScene" uid="uid://c43bw0u7ou0eu" path="res://Prefabs/Food/drink.tscn" id="7_6m3gy"]
 [ext_resource type="Texture2D" uid="uid://cpuci6oslm3o4" path="res://Textures/drink_small.png" id="8_rh6bn"]
 [ext_resource type="PackedScene" uid="uid://b6ftgpptt8lm7" path="res://Prefabs/Food/ice_cream.tscn" id="9_4rqwf"]
+[ext_resource type="Texture2D" uid="uid://bf1qus3m83ot5" path="res://Textures/ice_cream_small.png" id="10_rh6bn"]
 [ext_resource type="PackedScene" uid="uid://ut30r37m3be4" path="res://Prefabs/Food/cookie.tscn" id="11_rh6bn"]
+[ext_resource type="Texture2D" uid="uid://ds4wdnu14vqw6" path="res://Textures/cookie_small.png" id="12_rh6bn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rh6bn"]
 
@@ -89,6 +89,7 @@ grow_vertical = 2
 texture = ExtResource("8_rh6bn")
 
 [node name="IceCreamButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh6bn")
 icon = ExtResource("1_5skgy")
@@ -109,9 +110,10 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_dlsdh")
+texture = ExtResource("10_rh6bn")
 
 [node name="CookieButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh6bn")
 icon = ExtResource("1_5skgy")
@@ -126,13 +128,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -75.0
+offset_top = -86.0
+offset_right = 75.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_e2ipf")
+texture = ExtResource("12_rh6bn")
 
 [connection signal="button_down" from="HamburgerButton" to="HamburgerButton" method="_on_button_down"]
 [connection signal="button_down" from="FriesButton" to="FriesButton" method="_on_button_down"]

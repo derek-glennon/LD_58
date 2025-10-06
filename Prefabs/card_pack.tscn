@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://una3gqttaoe4"]
+[gd_scene load_steps=5 format=3 uid="uid://una3gqttaoe4"]
 
 [ext_resource type="Texture2D" uid="uid://c7j2fxhn1l7j4" path="res://Textures/card_pack.png" id="1_6ogk4"]
 [ext_resource type="Script" uid="uid://cbk6hqctgdx04" path="res://Scripts/card_pack.gd" id="2_l4trg"]
 [ext_resource type="PackedScene" uid="uid://di5pcti1kalii" path="res://Prefabs/card.tscn" id="3_kusq5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kusq5"]
 
 [node name="card_pack" type="Button" node_paths=PackedStringArray("cards")]
 anchors_preset = 8
@@ -16,6 +18,7 @@ offset_right = 316.5
 offset_bottom = 441.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kusq5")
 icon = ExtResource("1_6ogk4")
 flat = true
 script = ExtResource("2_l4trg")

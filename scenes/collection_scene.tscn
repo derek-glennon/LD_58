@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddtmwmfk2epqy"]
 
-[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_wuvjj"]
+[ext_resource type="Texture2D" uid="uid://bw7rrp412cgmb" path="res://Textures/Backgrounds/collection_background.png" id="1_1171b"]
 [ext_resource type="PackedScene" uid="uid://bt1xri2xfcllm" path="res://Prefabs/collection_grid.tscn" id="2_4vf3c"]
 [ext_resource type="Texture2D" uid="uid://l6y8m1ivb8tu" path="res://Textures/stage_1_button_background.png" id="3_hv1g0"]
 [ext_resource type="Texture2D" uid="uid://dwnm6bnpptnnw" path="res://Textures/right_arrow.png" id="4_5acdj"]
@@ -15,7 +15,7 @@
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(960, 540)
-texture = ExtResource("1_wuvjj")
+texture = ExtResource("1_1171b")
 
 [node name="CollectionGrid" parent="." instance=ExtResource("2_4vf3c")]
 offset_left = 353.0
