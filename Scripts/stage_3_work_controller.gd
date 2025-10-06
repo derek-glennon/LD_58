@@ -12,7 +12,7 @@ extends Node2D
 @export var after_answer_delay := 3
 @export var circle_timer : CircleTimer
 @export var work_time_max := 30.0
-@export var end_of_work_delay := 3.0
+@export var end_of_work_delay := 4.0
 @export var random_inputs : Array[String] = []
 @export var command_phrases : Array[String] = []
 @export var correct_phrases : Array[String] = []
@@ -77,7 +77,7 @@ func _on_correct_input() -> void:
 		instructions_text.text = correct_phrases.pick_random()
 		var timer = get_tree().create_timer(after_answer_delay)
 		timer.timeout.connect(_on_after_answer_delay_over)
-		for i in range(50):
+		for i in range(100):
 			await get_tree().create_timer(0.01).timeout
 			_on_emit_coin(coin_scene.instantiate(), Vector2(960, 540), 0.5)
 
@@ -91,7 +91,7 @@ func _on_work_time_over() -> void:
 	instructions_text.text = celebration_phrases.pick_random()
 	var timer = get_tree().create_timer(end_of_work_delay)
 	timer.timeout.connect(_on_end_of_work_delay_over)
-	for i in range(100):
+	for i in range(200):
 		await get_tree().create_timer(0.01).timeout
 		_on_emit_coin(coin_scene.instantiate(), Vector2(960, 540), 0.5)
 			

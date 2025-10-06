@@ -181,7 +181,7 @@ func play_sell_animation() -> void:
 
 func _on_sell_animation_done() -> void:
 	coins_collected = 0
-	var sell_cost = int(floor((cost * 0.25)))
+	var sell_cost = int(floor((cost * 0.1)))
 	if sell_cost == 0:
 		sell_cost = 1
 		
@@ -204,7 +204,7 @@ func _on_coin_collected() -> void:
 	PlayerController.change_money(PlayerController.money + 1)
 	coins_collected += 1
 	
-	var sell_cost = int(floor((cost * 0.25)))
+	var sell_cost = int(floor((cost * 0.1)))
 	if sell_cost == 0:
 		sell_cost = 1
 		

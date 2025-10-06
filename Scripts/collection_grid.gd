@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 func init() -> void:
 	max_page = (PlayerController.all_cards.size() / 8) - 1
+	#prints(PlayerController.all_cards.size())
 	for i in range(visible_cards.size()):
 		visible_cards[i].clone_card(PlayerController.all_cards[current_page + i])
 	

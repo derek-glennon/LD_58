@@ -157,7 +157,6 @@ func _on_tray_area_area_shape_exited(area_rid: RID, area: Area2D, area_shape_ind
 						working_order.cookies -= 1
 
 func _on_bell_button_pressed() -> void:
-	prints("pressed")
 	if working_order and is_bell_active:
 		var order_done := false
 		var equal_1 = working_order.hamburgers == target_order.hamburgers

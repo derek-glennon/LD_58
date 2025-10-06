@@ -16,8 +16,8 @@
 
 [node name="buy_scene" type="Node2D" node_paths=PackedStringArray("pack_spawn_point", "back_button", "pack_button", "rare_pack_button", "buy_singles_button", "buy_singles_scene", "buy_singles_grid")]
 script = ExtResource("1_4rf3d")
-pack_cost = 10
-rare_pack_cost = 30
+pack_cost = 15
+rare_pack_cost = 40
 pack_spawn_point = NodePath("PackSpawnPoint")
 back_button = NodePath("BackButton")
 pack_button = NodePath("BuyPackButton")
@@ -88,7 +88,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_jgp8b")
 theme_override_font_sizes/normal_font_size = 100
-text = "Pack - 10"
+text = "Pack - 15"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -125,7 +125,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_jgp8b")
 theme_override_font_sizes/normal_font_size = 60
-text = "Rare Pack - 30
+text = "Rare Pack - 40
 
 "
 horizontal_alignment = 1

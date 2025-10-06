@@ -12,6 +12,7 @@ var current_scene := Enums.CurrentScene.MAIN
 var is_opening_pack := false
 var money_ui
 var main_menu : MainMenu
+var main_node : MainNode
 
 signal card_unlocked
 signal money_amount_changed
@@ -22,8 +23,18 @@ signal all_cards_unlocked
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var cards = HelperFunctions.load_scenes_from_directory(card_path)
-	for card in cards:
+	# Setup connections
+	var nodes = HelperFunctions.get_all_children($"..")
+	for node in nodes:
+		var node_main_menu := node as MainMenu
+		if node_main_menu:
+			main_menu = node_main_menu
+			#prints(node)
+		var node_main := node as MainNode
+		if node_main:
+			main_node = node_main
+			
+	for card in main_node.all_cards:
 		var newCard := card.instantiate() as Card
 		if newCard:
 			all_cards.append(newCard)
@@ -31,16 +42,13 @@ func _ready() -> void:
 	all_cards.sort_custom(HelperFunctions.sort_cards_by_number)
 	locked_cards.sort_custom(HelperFunctions.sort_cards_by_number)
 	
-	# Setup connections
-	var nodes = HelperFunctions.get_all_children($"..")
-	for node in nodes:
+	# Have to do collection grid setup after setting up cards
+	var nodes2 = HelperFunctions.get_all_children($"..")
+	for node in nodes2:
 		var node_grid := node as CollectionGrid
 		if node_grid:
 			collection_grid = node_grid
 			collection_grid.init()
-		var node_main_menu := node as MainMenu
-		if node_main_menu:
-			main_menu = node_main_menu
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

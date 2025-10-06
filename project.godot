@@ -13,7 +13,8 @@ config_version=5
 config/name="LD_58"
 run/main_scene="uid://crw05pw5v77l0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dhls14s3fvskp"
+config/windows_native_icon="res://Promo/game_icon_bigger.ico"
 
 [autoload]
 
