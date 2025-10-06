@@ -1,6 +1,5 @@
 [gd_scene load_steps=18 format=3 uid="uid://wyi0mld4r5oe"]
 
-[ext_resource type="Texture2D" uid="uid://mdyst86t42sf" path="res://Textures/Backgrounds/stage_1_background.png" id="1_hcohb"]
 [ext_resource type="PackedScene" uid="uid://q38t2637560h" path="res://Prefabs/mower.tscn" id="1_llvil"]
 [ext_resource type="Script" uid="uid://dsesje245xgdr" path="res://Scripts/stage_1_work_controller.gd" id="1_mjqi5"]
 [ext_resource type="Script" uid="uid://dit7pjcsdocbf" path="res://Scripts/grass_controller.gd" id="1_v8wke"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b4b88b5l857r1" path="res://Prefabs/GrassPatterns/grass_pattern_3_1.tscn" id="12_jqxug"]
 [ext_resource type="PackedScene" uid="uid://b6i5ur8eeai1f" path="res://Prefabs/GrassPatterns/grass_pattern_3_2.tscn" id="13_loahu"]
 [ext_resource type="PackedScene" uid="uid://dnm2yunijmaha" path="res://Prefabs/GrassPatterns/grass_pattern_3_3.tscn" id="14_facah"]
+[ext_resource type="Texture2D" uid="uid://fnjl4utbejfw" path="res://Textures/Backgrounds/stage_1_game_background.png" id="15_qy2dc"]
 
 [node name="stage_1_work_scene" type="Node2D" node_paths=PackedStringArray("grass_controller", "instructions_text", "mower", "circle_timer")]
 script = ExtResource("1_mjqi5")
@@ -45,8 +45,8 @@ grass_paterns_day_three = Array[PackedScene]([ExtResource("2_nhjs3"), ExtResourc
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(960, 540)
-texture = ExtResource("1_hcohb")
+position = Vector2(960, 539)
+texture = ExtResource("15_qy2dc")
 
 [node name="GrassSpawnPoint" type="Node2D" parent="."]
 position = Vector2(960, 540)

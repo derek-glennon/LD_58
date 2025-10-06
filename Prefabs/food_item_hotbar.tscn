@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://bcyxwfql7fcqs"]
 
 [ext_resource type="Texture2D" uid="uid://l6y8m1ivb8tu" path="res://Textures/stage_1_button_background.png" id="1_5skgy"]
-[ext_resource type="Texture2D" uid="uid://cklhnw7qmqrfc" path="res://Textures/temp_food_item.png" id="2_bwc6a"]
 [ext_resource type="Script" uid="uid://j2y2f7kqdghu" path="res://Scripts/food_button.gd" id="2_x6hks"]
 [ext_resource type="PackedScene" uid="uid://svg3nunlfahs" path="res://Prefabs/Food/hamburger.tscn" id="3_dlsdh"]
-[ext_resource type="Texture2D" uid="uid://clpirt85vv8no" path="res://Textures/temp_food_item_2.png" id="3_u0g6t"]
-[ext_resource type="Texture2D" uid="uid://j3q5s2afohhp" path="res://Textures/temp_food_item_3.png" id="4_x6hks"]
+[ext_resource type="Texture2D" uid="uid://cg66nnvkeeiv8" path="res://Textures/burger_small.png" id="4_rh6bn"]
 [ext_resource type="Texture2D" uid="uid://6wxmjfsfo06u" path="res://Textures/temp_food_item_4.png" id="5_dlsdh"]
 [ext_resource type="PackedScene" uid="uid://br8qrphl76vfr" path="res://Prefabs/Food/fries.tscn" id="5_e2ipf"]
 [ext_resource type="Texture2D" uid="uid://bsuqmxre7iqud" path="res://Textures/temp_food_item_5.png" id="6_e2ipf"]
+[ext_resource type="Texture2D" uid="uid://bq5q2jn73g1mu" path="res://Textures/fries_small.png" id="6_rh6bn"]
 [ext_resource type="PackedScene" uid="uid://c43bw0u7ou0eu" path="res://Prefabs/Food/drink.tscn" id="7_6m3gy"]
+[ext_resource type="Texture2D" uid="uid://cpuci6oslm3o4" path="res://Textures/drink_small.png" id="8_rh6bn"]
 [ext_resource type="PackedScene" uid="uid://b6ftgpptt8lm7" path="res://Prefabs/Food/ice_cream.tscn" id="9_4rqwf"]
 [ext_resource type="PackedScene" uid="uid://ut30r37m3be4" path="res://Prefabs/Food/cookie.tscn" id="11_rh6bn"]
 
@@ -40,7 +40,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bwc6a")
+texture = ExtResource("4_rh6bn")
 
 [node name="FriesButton" type="Button" parent="."]
 layout_mode = 2
@@ -63,7 +63,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_u0g6t")
+texture = ExtResource("6_rh6bn")
 
 [node name="DrinkButton" type="Button" parent="."]
 layout_mode = 2
@@ -86,10 +86,9 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_x6hks")
+texture = ExtResource("8_rh6bn")
 
 [node name="IceCreamButton" type="Button" parent="."]
-visible = false
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh6bn")
 icon = ExtResource("1_5skgy")
@@ -113,7 +112,6 @@ grow_vertical = 2
 texture = ExtResource("5_dlsdh")
 
 [node name="CookieButton" type="Button" parent="."]
-visible = false
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rh6bn")
 icon = ExtResource("1_5skgy")

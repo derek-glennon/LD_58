@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crw05pw5v77l0"]
+[gd_scene load_steps=10 format=3 uid="uid://crw05pw5v77l0"]
 
 [ext_resource type="PackedScene" uid="uid://ddrfrk1qtsvxu" path="res://Prefabs/collection_button.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://b302md8wkqu2x" path="res://scenes/main_menu.tscn" id="1_sugp2"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://0dkpefoda0sr" path="res://scenes/stage_3_work_scene.tscn" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://d1d8gihbd7o5x" path="res://scenes/stage_2_work_scene.tscn" id="5_tipki"]
 [ext_resource type="PackedScene" uid="uid://bc0nmfmoaekox" path="res://scenes/thanks_for_playing_scene.tscn" id="7_85g3d"]
-[ext_resource type="Script" uid="uid://dkt1h3ywcv0y7" path="res://Scripts/thanks_for_playing_scene.gd" id="8_choun"]
 
 [node name="main" type="Node2D"]
 
@@ -48,7 +47,6 @@ main_menu_scene = NodePath("../main_menu")
 
 [node name="thanks_for_playing_scene" parent="." instance=ExtResource("7_85g3d")]
 visible = false
-script = ExtResource("8_choun")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
